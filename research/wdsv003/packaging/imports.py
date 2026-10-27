@@ -36,6 +36,8 @@ while cursor<limit:
   if (entry&~1) in wanted:selected.append(dict(name=wanted[entry&~1],library=library,nid=hex(nid),stub_va=hex(entry),nid_cell=hex(nids+i*4),pointer_cell=hex(funcs+i*4)))
  rows.append(row);cursor+=size
 assert cursor==limit
-report=dict(scope=__doc__,source_sha256=digest,module_info_va=hex(module_va),info_version=m[31],start_entry_rva=hex(struct.unpack_from('<I',m,0x44)[0]),stub_top_va=hex(base+top),stub_end_va=hex(base+end),libraries=rows,selected_imports=selected,limits=['Raw stored pointers mapped only; no runtime binding/relocation or hook coverage proved.','Selected names are cross-checks against prior Ghidra NID resolution, not private server code.'])
+init_raw=at(0x82cb3628,0x82cb42a4-0x82cb3628)
+init_entries=struct.unpack('<'+'I'*(len(init_raw)//4),init_raw)
+report=dict(scope=__doc__,source_sha256=digest,module_info_va=hex(module_va),info_version=m[31],start_entry_rva=hex(struct.unpack_from('<I',m,0x44)[0]),stub_top_va=hex(base+top),stub_end_va=hex(base+end),libraries=rows,selected_imports=selected,initializer_candidate=dict(start_va='0x82cb3628',end_va='0x82cb42a4',entries=len(init_entries),nonzero=sum(bool(x) for x in init_entries),sha256=hashlib.sha256(init_raw).hexdigest(),scope='Range referenced by static startup helper; entries not executed or individually traced'),limits=['Raw stored pointers mapped only; no runtime binding/relocation or hook coverage proved.','Selected names are cross-checks against prior Ghidra NID resolution, not private server code.'])
 (pathlib.Path(__file__).with_name('imports.json')).write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(dict(libraries=len(rows),functions=sum(x['functions'] for x in rows),selected=selected,module_info_va=hex(module_va))))
