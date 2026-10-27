@@ -27,7 +27,7 @@ def main():
     evidence = dict(scope='Local Python synthetic tests and read-only copied input hashes; no client, VitaOS or physical execution.',
                     inputs=checks, suites=suites, success=all(c['matches'] for c in checks) and all(s['exit_code']==0 for s in suites),
                     physical_execution_allowed=False,
-                    limits=['No batch writer or native manifest selector.', 'No client hook, isolated resource mount or AppUtil identity verified.',
+                    limits=['Native manifest/record/snapshot readers tested under ARM with Python digest callback; no native SHA or native batch writer.', 'No client hook, isolated resource mount or AppUtil identity verified.',
                             'SELF transformation gate remains blocked.', 'No identity/Sign/Entrance/Channel integration produced in this delivery.'])
     (HERE/'validation.json').write_text(json.dumps(evidence,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(evidence,indent=2))
