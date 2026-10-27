@@ -50,3 +50,9 @@ batch_plan.py y batch_commit.py son referencias Python: conservan referencias vi
 La suite WDSV004 contiene ahora 25 métodos de prueba, con seis fallos de publicación y seis variantes de datos modificables entre sus subcasos. validation.json se regenera con las suites existentes y los hashes de las copias de entrada. Los detalles de cada cobertura están en NATIVE-MANIFEST.md, NATIVE-RECORD-REF.md, NATIVE-SNAPSHOT.md, BATCH-PREPARATION.md y BATCH-PUBLICATION.md.
 
 La siguiente tarea nativa sigue siendo verificar el digest y trasladar el protocolo de lote al backend. El límite de escritura 163840 bytes no cubre INI-DATA de 512000 bytes. No se ha demostrado aislamiento del cliente, montajes, identidad AppUtil o relanzamiento; no hay ejecución física autorizada ni hito de aceptación completado.
+
+## Actualización nativa — 27-10, 23:10 UTC
+
+SHA nativo implementado en sha256.c/h y comprobado: 19 casos ARM con hashlib solo como oráculo, sin sustituir el digest. El selector completo enlazado con ese SHA pasa otros 23 casos ARM, incluidos fallo de digest mediante stub nativo e interrupción de candidatos. NATIVE-SHA256.md conserva fuente normativa, alcance, hashes y límites. Esta actualización resuelve el digest pendiente indicado en apartados anteriores, pero no constituye certificación FIPS.
+
+Pendientes: trasladar el protocolo de publicación de lotes a código nativo, exclusión/recuperación de escritor, durabilidad del backend, capacidad INI-DATA y aislamiento real del cliente. Los resultados ARM no sustituyen pruebas físicas ni autorizan ejecución.
