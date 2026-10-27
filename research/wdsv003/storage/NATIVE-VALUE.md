@@ -15,3 +15,7 @@ value_journal.c/.h conectan el sobre con save_journal/save_record existentes, co
 check_value_journal_arm.py compila los componentes C juntos: 22 casos ARM con callbacks de E/S simulados pasan, incluyendo borrado confirmado, recreación parcial, borrado parcial, operaciones completas sin confirmación, dato vacío, cuerpo inválido y error de lectura. No hay disco ni VitaOS. Los empates de secuencia conservan la política del diario C (ranura A), distinta del modelo Python que rechaza dos contenidos diferentes con igual secuencia; queda pendiente unificar antes de integración física. No se atribuyen estas garantías al cliente real.
 
 
+## Rechazo de secuencias ambiguas
+
+La carga usada por value_journal ahora invoca mhfz_journal_load_strict: si dos registros válidos tienen igual secuencia y distinto contenido, rechaza y mantiene commits deshabilitados. Copias idénticas se aceptan. El API anterior mantiene elección A para compatibilidad, pero el adaptador nuevo usa siempre la variante estricta. Los 26 casos del ciclo nativo pasan, incluidos conflictos vivo/tombstone e igual longitud; las 17 pruebas de regresión del diario anterior siguen pasando. Sigue sin haber validación de disco/VitaOS ni integración del cliente.
+
