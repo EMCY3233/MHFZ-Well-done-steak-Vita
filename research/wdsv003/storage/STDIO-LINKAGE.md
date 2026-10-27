@@ -1,0 +1,11 @@
+# Bloqueo concreto de enlace: errno
+
+27-10-2026. Se compiló private_files.c como objeto ARM/Thumb, sin enlazar ni ejecutar. GCC del VitaSDK local, opciones -mthumb -mcpu=cortex-a9 -mfloat-abi=soft -Os -Wall -Wextra -Werror -ffreestanding -fno-builtin. nm -u enumera ocho dependencias: __errno, fclose, ferror, fflush, fopen, fread, fwrite y wdsv_slot_path. La última es propia; las otras siete requieren resolver el entorno C.
+
+El encabezado sys/errno.h del SDK convierte errno en `(*__errno())`. El archivo libSceLibc_stub.a ofrece las seis funciones stdio citadas, pero su función de localización de error se llama **_sceLibcErrnoLoc**, no __errno. La base local vita-headers/db/360/SceLibc.yml corrobora ese nombre. Por tanto, enlazar únicamente los stubs SceLibc no satisface el objeto actual; los mocks anteriores sí aportaban la función faltante y no detectaban esta diferencia de integración.
+
+No se demuestra todavía incompatibilidad de los valores de error ni del tipo FILE; tampoco basta renombrar __errno. El adaptador debe usar una única familia coherente de stdio y localización de errores. Si fopen actualiza un errno y el backend consulta otro, un archivo ausente puede clasificarse incorrectamente como fallo de E/S, o confundirse con un error anterior. La condición ENOENT determina recuperación de ranuras, de modo que esta diferencia afecta al comportamiento real.
+
+Opciones pendientes: adaptar explícitamente la localización de error a la misma biblioteca y validar tipos/códigos, o reemplazar stdio por llamadas nativas con una traducción documentada. No mezclar inadvertidamente newlib y SceLibc ni reutilizar punteros FILE entre implementaciones. La presencia de libc.suprx dentro de la copia no prueba el enlace efectivo de un backend añadido.
+
+Este hallazgo no invalida las pruebas sintéticas de recuperación: delimita su alcance. No se produjo aún un backend enlazado al cliente ni se cambió su comportamiento. Próximo experimento: enlace mínimo sin ejecución contra stubs seleccionados para enumerar incompatibilidades restantes y fijar una política única de errores antes de integrar.
