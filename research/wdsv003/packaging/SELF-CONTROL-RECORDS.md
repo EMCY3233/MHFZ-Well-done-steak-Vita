@@ -1,0 +1,11 @@
+# Registros de control y digest del ELF
+
+27-10-2026. Lectura original del SELF inventariado, sin reconstrucción. Fuentes primarias fijadas: [vita-toolchain src/self.h](https://github.com/vitasdk/vita-toolchain/blob/008ddc2d7fd4bd16631d1e49cacf308de6f545f1/src/self.h) y [vita-make-fself.c](https://github.com/vitasdk/vita-toolchain/blob/008ddc2d7fd4bd16631d1e49cacf308de6f545f1/src/vita-make-fself/vita-make-fself.c). Blobs a163dbc994a01afe7118a38f2340a9700b54d0c1 y4117db403748b35a703ab7d6c4cf9c1e4d84e09e. No se copió implementación de terceros.
+
+El rango de control560..1264 se descompone exactamente en cuatro registros: tipo4/80bytes, tipo5/272, tipo6/272 y tipo7/80. El encabezado común tiene cuatro campos32, no un indicador64: type,size,unk,pad. Los tres primeros registros tienen unk=1, el último0; padding0 en todos. No se atribuye al campo desconocido una semántica adicional.
+
+La estructura tipo4 sitúa elf_digest tras16bytes comunes y20 de constante. El generador primario calcula SHA256 del ELF de entrada para ese campo. Se comparó el digest almacenado en596..628 con SHA256 del ELF derivado; el resultado booleano está en self-control-records.json. Una coincidencia o diferencia no verifica autenticidad, firmas ni aceptación del cargador; tampoco determina la procedencia de las modificaciones rePatch.
+
+El campo metadata_offset del encabezado vale1536, igual al valor configurado en la ruta ordinaria del generador consultado. No implica que todo el espacio entre controlinfo y ese valor sea reutilizable, ni que todas las estructuras posteriores estén interpretadas. No escribir en huecos desconocidos.
+
+Cualquier transformación semántica debe contemplar el digest y los demás controles en vez de preservar ciegamente todo el encabezado. Esto no autoriza regenerar un SELF: siguen abiertos tamaño declarado, cola zlib, disposición y requisitos del cargador. Próximo paso: interpretar el resultado del digest junto con procedencia y política explícita de reconstrucción; no alterar originales para hacerlo coincidir.

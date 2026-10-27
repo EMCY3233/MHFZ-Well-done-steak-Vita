@@ -1,0 +1,14 @@
+name: Synthetic isolation checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/wdsv003/storage -p 'test_*.py' -v
+      - run: python -m unittest discover -s research/wdsv003/packaging -p 'test_*.py' -v

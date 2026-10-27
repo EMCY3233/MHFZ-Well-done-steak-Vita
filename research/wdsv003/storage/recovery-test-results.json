@@ -1,0 +1,17 @@
+{
+  "scope": "Host RAM durable-image model and snapshot restart only; not Vita I/O or existing C journal tests",
+  "tests": 11,
+  "failures": 0,
+  "errors": 0,
+  "failpoints": [
+    "before",
+    "partial",
+    "afterwrite",
+    "beforeACK"
+  ],
+  "files": {
+    "memory_journal.py": "613ff97523bd6a94d937ed33ceb77b43fdd8d1694535e9b432cacf80c83907bb",
+    "test_memory_journal.py": "b3aef79b8ea631cf23be7b8b7e7ec9b5ef639367b5252a702549de6c31382b4c",
+    "storage_policy.py": "02e7b887dd531d521c072585b8296c92540960dc0054b65e52e6dfe6a4f9951c"
+  }
+}

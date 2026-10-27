@@ -1,0 +1,36 @@
+{
+  "source_sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+  "metadata_offset_field": 1536,
+  "control_records": [
+    {
+      "offset": 560,
+      "type": 4,
+      "size": 80,
+      "unknown": 1,
+      "padding": 0
+    },
+    {
+      "offset": 640,
+      "type": 5,
+      "size": 272,
+      "unknown": 1,
+      "padding": 0
+    },
+    {
+      "offset": 912,
+      "type": 6,
+      "size": 272,
+      "unknown": 1,
+      "padding": 0
+    },
+    {
+      "offset": 1184,
+      "type": 7,
+      "size": 80,
+      "unknown": 0,
+      "padding": 0
+    }
+  ],
+  "type4_digest_matches_derived_elf": true,
+  "scope": "Read-only structural metadata, no authentication proof or rewriting"
+}

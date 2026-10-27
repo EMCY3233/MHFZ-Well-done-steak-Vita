@@ -1,0 +1,49 @@
+{
+  "scope": "Decode main form-0 fields and check target ranges, without applying fixups.",
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "segments": [
+    {
+      "segment": 2,
+      "summary": {
+        "records": 425605,
+        "codes": {
+          "47": 176269,
+          "48": 176269,
+          "2": 73067
+        },
+        "symbol_segments": {
+          "1": 246051,
+          "0": 179554
+        },
+        "patch_segments": {
+          "0": 425605
+        },
+        "secondary_operations": 0,
+        "primary_targets_in_bss": 0,
+        "issues": {},
+        "issue_examples": []
+      }
+    },
+    {
+      "segment": 3,
+      "summary": {
+        "records": 49614,
+        "codes": {
+          "2": 49614
+        },
+        "symbol_segments": {
+          "1": 14605,
+          "0": 35009
+        },
+        "patch_segments": {
+          "1": 49614
+        },
+        "secondary_operations": 0,
+        "primary_targets_in_bss": 0,
+        "issues": {},
+        "issue_examples": []
+      }
+    }
+  ],
+  "limits": "Range/type checks only. No instruction validation, symbol resolution, overlap/order analysis, relocation application or launch proof."
+}

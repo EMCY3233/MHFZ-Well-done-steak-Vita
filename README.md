@@ -2,6 +2,10 @@
 
 Investigación de ejecución autónoma de Monster Hunter Frontier Z en PS Vita.
 
-Estado: investigación y componentes experimentales; no existe aún una versión del juego autónoma validada. La ejecución física requiere autorización específica.
+Preparación parcial: [informe WDSV-003](research/wdsv003/README.md), [almacenamiento](research/wdsv003/storage/README.md) e [inventario y empaquetado](research/wdsv003/packaging/REPORT.md).
 
-Este repositorio conserva exclusivamente documentación y herramientas propias. No incluye ejecutables, recursos comerciales, credenciales ni partidas del usuario. Las propuestas se revisan mediante pull requests; no se modifican firmware, plugins ni instalación original.
+Incluye herramientas propias, informes técnicos y metadatos cuya publicación autorizó el usuario. No incluye ejecutables comerciales, recursos protegidos, credenciales ni partidas.
+
+24 pruebas locales satisfactorias: 20 de almacenamiento y recuperación simulados y 4 del lector ELF. No hay hooks integrados, cliente autónomo ni paquete seguro validado. Instalación y ejecución física requieren autorización específica.
+
+Pruebas: `python -m unittest discover -s research/wdsv003/storage -p 'test_*.py' -v` y la misma orden con `packaging`.

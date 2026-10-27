@@ -1,0 +1,13 @@
+# Commercial inputs and private analysis stay local.
+evidence/
+analysis-tools/
+sources/
+standalone/build*/
+**/__pycache__/
+*.pyc
+*.vpk
+*.self
+*.elf
+*.bin
+*.log
+*.asm.txt

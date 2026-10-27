@@ -1,0 +1,298 @@
+{
+  "scope": "Structural read-only inventory; no launch, relocation application, runtime mount discovery, or packaging",
+  "source": {
+    "path": "evidence/vita/current-ftp/rePatch-eboot.bin",
+    "bytes": 15176628,
+    "sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3"
+  },
+  "derived": {
+    "path": "evidence/vita/derived/rePatch-eboot.elf",
+    "bytes": 35814152,
+    "sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d"
+  },
+  "self_header": {
+    "header_len": 4096,
+    "elf_filesize": 35814152,
+    "self_filesize": 15175780,
+    "unknown": 0,
+    "self_offset": 4,
+    "appinfo_offset": 128,
+    "elf_offset": 160,
+    "phdr_offset": 224,
+    "shdr_offset": 0,
+    "section_info_offset": 384,
+    "sceversion_offset": 544,
+    "controlinfo_offset": 560,
+    "controlinfo_size": 704,
+    "padding": 0
+  },
+  "self_declared_size_matches": false,
+  "embedded_header_matches": true,
+  "embedded_phdrs_match": true,
+  "elf_header": {
+    "type": 65028,
+    "machine": 40,
+    "version": 1,
+    "entry": 20785824,
+    "phoff": 52,
+    "shoff": 0,
+    "flags": 83886080,
+    "ehsize": 52,
+    "phentsize": 32,
+    "phnum": 5,
+    "shentsize": 0,
+    "shnum": 0,
+    "shstrndx": 0
+  },
+  "segments": [
+    {
+      "type": 1,
+      "offset": 224,
+      "vaddr": 2164260864,
+      "paddr": 0,
+      "filesz": 28483284,
+      "memsz": 28483292,
+      "flags": 5,
+      "align": 16,
+      "index": 0,
+      "sha256": "a90c1b542d230920a2a2d5b9416e057209f0876106025db9400e2b2b8a92a327",
+      "type_name": "PT_LOAD"
+    },
+    {
+      "type": 1,
+      "offset": 28483520,
+      "vaddr": 2192744448,
+      "paddr": 0,
+      "filesz": 1614524,
+      "memsz": 25829404,
+      "flags": 6,
+      "align": 16,
+      "index": 1,
+      "sha256": "412730d6806e3be9b8388b832e852ba1e8c2e13114b3f0db5ab3718589087497",
+      "type_name": "PT_LOAD"
+    },
+    {
+      "type": 1610612736,
+      "offset": 30111520,
+      "vaddr": 0,
+      "paddr": 0,
+      "filesz": 5107260,
+      "memsz": 0,
+      "flags": 0,
+      "align": 16,
+      "index": 2,
+      "sha256": "016e1512d7a107fcf4a04cf8ff0333f8aded5e873532a5a3c89d3a092b194aa2",
+      "type_name": "PT_SCE_RELA"
+    },
+    {
+      "type": 1610612736,
+      "offset": 35218784,
+      "vaddr": 0,
+      "paddr": 0,
+      "filesz": 595368,
+      "memsz": 0,
+      "flags": 65536,
+      "align": 16,
+      "index": 3,
+      "sha256": "cdbd081ebd8cde639387381b28f475656de3184bc60dd9f3cfc662482ee35af6",
+      "type_name": "PT_SCE_RELA"
+    },
+    {
+      "type": 1879047937,
+      "offset": 30098048,
+      "vaddr": 0,
+      "paddr": 0,
+      "filesz": 13468,
+      "memsz": 0,
+      "flags": 0,
+      "align": 16,
+      "index": 4,
+      "sha256": "52b8e47c1465c2e731d8c0c335fa6385c45033fa54611429e77ecb9ecb6f4d45",
+      "type_name": "PT_SCE_VERSION"
+    }
+  ],
+  "compressed_segment_comparison": [
+    {
+      "index": 0,
+      "container_offset": 4320,
+      "container_length": 13234543,
+      "compression": 2,
+      "encryption": 2,
+      "decoded_bytes": 28483284,
+      "unused_trailing_bytes": 21,
+      "matches_derived": true,
+      "sha256": "a90c1b542d230920a2a2d5b9416e057209f0876106025db9400e2b2b8a92a327"
+    },
+    {
+      "index": 1,
+      "container_offset": 13238882,
+      "container_length": 236083,
+      "compression": 2,
+      "encryption": 2,
+      "decoded_bytes": 1614524,
+      "unused_trailing_bytes": 0,
+      "matches_derived": true,
+      "sha256": "412730d6806e3be9b8388b832e852ba1e8c2e13114b3f0db5ab3718589087497"
+    },
+    {
+      "index": 2,
+      "container_offset": 13475424,
+      "container_length": 1516532,
+      "compression": 2,
+      "encryption": 2,
+      "decoded_bytes": 5107260,
+      "unused_trailing_bytes": 0,
+      "matches_derived": true,
+      "sha256": "016e1512d7a107fcf4a04cf8ff0333f8aded5e873532a5a3c89d3a092b194aa2"
+    },
+    {
+      "index": 3,
+      "container_offset": 14991968,
+      "container_length": 184660,
+      "compression": 2,
+      "encryption": 2,
+      "decoded_bytes": 595368,
+      "unused_trailing_bytes": 0,
+      "matches_derived": true,
+      "sha256": "cdbd081ebd8cde639387381b28f475656de3184bc60dd9f3cfc662482ee35af6"
+    },
+    {
+      "index": 4,
+      "container_offset": 13474976,
+      "container_length": 430,
+      "compression": 2,
+      "encryption": 2,
+      "decoded_bytes": 13468,
+      "unused_trailing_bytes": 0,
+      "matches_derived": true,
+      "sha256": "52b8e47c1465c2e731d8c0c335fa6385c45033fa54611429e77ecb9ecb6f4d45"
+    }
+  ],
+  "literals": [
+    {
+      "file_offset": "0x17ea10c",
+      "load_virtual_addresses": [
+        "0x827ea02c"
+      ],
+      "text": "app0:\\"
+    },
+    {
+      "file_offset": "0x17ea560",
+      "load_virtual_addresses": [
+        "0x827ea480"
+      ],
+      "text": "JP0102-PCSG00350_00"
+    },
+    {
+      "file_offset": "0x17ef6b4",
+      "load_virtual_addresses": [
+        "0x827ef5d4"
+      ],
+      "text": "PRI-DATA"
+    },
+    {
+      "file_offset": "0x17ef6c0",
+      "load_virtual_addresses": [
+        "0x827ef5e0"
+      ],
+      "text": "INI-DATA"
+    },
+    {
+      "file_offset": "0x17ef6cc",
+      "load_virtual_addresses": [
+        "0x827ef5ec"
+      ],
+      "text": "app0:"
+    },
+    {
+      "file_offset": "0x17f0b2c",
+      "load_virtual_addresses": [
+        "0x827f0a4c"
+      ],
+      "text": "app0:"
+    },
+    {
+      "file_offset": "0x17f0b9c",
+      "load_virtual_addresses": [
+        "0x827f0abc"
+      ],
+      "text": "app0:"
+    },
+    {
+      "file_offset": "0x17f3698",
+      "load_virtual_addresses": [
+        "0x827f35b8"
+      ],
+      "text": "app0:eboot.bin"
+    },
+    {
+      "file_offset": "0x17f9ba0",
+      "load_virtual_addresses": [
+        "0x827f9ac0"
+      ],
+      "text": "savedata0:"
+    },
+    {
+      "file_offset": "0x1a06ed4",
+      "load_virtual_addresses": [
+        "0x82a06df4"
+      ],
+      "text": "app0:/"
+    }
+  ],
+  "layers_from_prior_manifest": {
+    "app": {
+      "files": 4492,
+      "bytes": 2166676271
+    },
+    "patch": {
+      "files": 3666,
+      "bytes": 2934729913
+    },
+    "rePatch": {
+      "files": 103,
+      "bytes": 111084243
+    }
+  },
+  "ghidra_imported_library_candidates": [
+    "libSceScreenShot.suprx",
+    "libfios2.suprx",
+    "libngs.suprx",
+    "audio.skprx",
+    "driver_us.suprx",
+    "libnet.suprx",
+    "libnetctl.suprx",
+    "libhttp.suprx",
+    "libssl.suprx",
+    "sysmodule.skprx",
+    "apputil.suprx",
+    "np_manager.suprx",
+    "np_common.suprx",
+    "libcdlg.suprx",
+    "ctrl.skprx",
+    "touch.skprx",
+    "np_trophy.suprx",
+    "np_activity_sdk.suprx",
+    "libgxm_es4.suprx",
+    "display.skprx",
+    "libgameupdate.suprx",
+    "libime.suprx",
+    "avcodec_us.suprx",
+    "np_utility.suprx",
+    "power.skprx",
+    "libult.suprx",
+    "libc.suprx",
+    "libkernel.suprx",
+    "iofilemgr.skprx",
+    "processmgr.skprx",
+    "sysmem.skprx",
+    "threadmgr.skprx"
+  ],
+  "import_scope": "Library names reported by previous Ghidra import log; not runtime availability or exhaustive NID resolution",
+  "limits": [
+    "Derived ELF is not certified launchable or executable-equivalent.",
+    "Relocation segments retained as bytes; relocation records are not applied or individually validated here.",
+    "Manifest layer counts are historical inventory, not observed mount precedence.",
+    "No commercial bytes emitted in this report."
+  ]
+}

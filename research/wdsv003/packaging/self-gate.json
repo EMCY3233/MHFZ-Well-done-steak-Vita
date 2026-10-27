@@ -1,0 +1,14 @@
+{
+  "scope": "Conservative structural gate only, not a Vita loader or signature validator.",
+  "source_sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+  "blocking_issues": [
+    "COMPRESSED_TRAILING_DATA",
+    "DECLARED_SIZE_MISMATCH"
+  ],
+  "transformation_allowed": false,
+  "actual_file_size": 15176628,
+  "declared_file_size": 15175780,
+  "last_compressed_end": 15176628,
+  "uncovered_tail_bytes": 0,
+  "limits": "Passing layout checks does not prove authenticity, metadata/relocation correctness, hook coverage, isolation or launchability. No bytes rewritten."
+}

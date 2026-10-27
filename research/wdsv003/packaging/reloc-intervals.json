@@ -1,0 +1,128 @@
+{
+  "scope": "Conservative byte-range index of observed relocation writes; no rewriting.",
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "writes": 475219,
+  "overlapping_pairs": 0,
+  "selected_pointer_cells": [
+    {
+      "name": "sceAppUtilSaveDataSlotDelete",
+      "pointer_cell": "0x823d3d78",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20790648,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4249452
+        }
+      ]
+    },
+    {
+      "name": "sceAppUtilSaveDataDataSave",
+      "pointer_cell": "0x823d3d7c",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20790652,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4249464
+        }
+      ]
+    },
+    {
+      "name": "sceAppUtilSaveDataSlotGetParam",
+      "pointer_cell": "0x823d3d80",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20790656,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4249476
+        }
+      ]
+    },
+    {
+      "name": "sceAppUtilInit",
+      "pointer_cell": "0x823d3d84",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20790660,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4249488
+        }
+      ]
+    },
+    {
+      "name": "sceAppMgrLoadExec",
+      "pointer_cell": "0x823d3fec",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20791276,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4251336
+        }
+      ]
+    },
+    {
+      "name": "sceIoOpen",
+      "pointer_cell": "0x823d42e4",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20792036,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4253616
+        }
+      ]
+    },
+    {
+      "name": "sceIoClose",
+      "pointer_cell": "0x823d433c",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20792124,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4253880
+        }
+      ]
+    },
+    {
+      "name": "sceIoRead",
+      "pointer_cell": "0x823d4340",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 20792128,
+          "size": 4,
+          "code": 2,
+          "source_segment": 2,
+          "record_offset": 4253892
+        }
+      ]
+    }
+  ],
+  "load_gaps": [
+    {
+      "after_segment": 0,
+      "before_segment": 1,
+      "virtual_gap_after_memsz": 292
+    }
+  ],
+  "limits": "Four-byte conservative intervals for MOVW/MOVT, not bit-level or instruction coverage. No patch applied; allocated runtime layout unknown."
+}

@@ -1,0 +1,36 @@
+{
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "scope": "Read-only candidate entry sites; no patch, code cave or hook safety inferred",
+  "sites": [
+    {
+      "label": "module_entry",
+      "va": "0x821409dc",
+      "size": 8,
+      "sha256": "955ea077016d1ebc32579c7020bfdd9258fac2c6db52af16fbbdc01ffeb8405b",
+      "relocations": []
+    },
+    {
+      "label": "start_entry_field",
+      "va": "0x823d2ae4",
+      "size": 4,
+      "sha256": "1047e0fe6887197eac85372426b8e1668a38769d9a3bc8ddc24e9920f7ebb8e0",
+      "relocations": []
+    },
+    {
+      "label": "runtime_helper_prefix",
+      "va": "0x821408a4",
+      "size": 8,
+      "sha256": "ae4fed9752967fc055dda4107888955e46156c803d5b147090b3bc69403f73a2",
+      "relocations": [
+        {
+          "segment": 0,
+          "offset": 18090154,
+          "size": 4,
+          "code": 47,
+          "source_segment": 2,
+          "record_offset": 3851760
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "scope": "Entire own C value/journal/fixed-path stdio chain under ARM emulation; files and failures simulated in Python RAM, no VitaOS",
+  "passed": 24,
+  "tests": [
+    "initial absent",
+    "independent live",
+    "initial absent",
+    "independent live",
+    "initial absent",
+    "independent live",
+    "independent recover",
+    "independent recover",
+    "independent recover",
+    "confirmed deletion",
+    "deletion restart",
+    "other namespace preserved",
+    "other namespace preserved",
+    "partial recreate fails",
+    "uncertain state cannot write",
+    "partial recreate keeps tombstone",
+    "denied open not acknowledged",
+    "old data after open failure",
+    "flush uncertainty not acknowledged",
+    "complete unacknowledged data can recover",
+    "partial deletion fails",
+    "partial deletion preserves old",
+    "bad namespace load",
+    "bad namespace commit"
+  ],
+  "opened_paths": [
+    "ux0:data/MHFZL0001/wdsv003/character-a.bin",
+    "ux0:data/MHFZL0001/wdsv003/character-b.bin",
+    "ux0:data/MHFZL0001/wdsv003/ini-a.bin",
+    "ux0:data/MHFZL0001/wdsv003/ini-b.bin",
+    "ux0:data/MHFZL0001/wdsv003/pri-a.bin",
+    "ux0:data/MHFZL0001/wdsv003/pri-b.bin"
+  ],
+  "elf_sha256": "d610c6e0b2be3988b2af838ec8ba62387168b6dce257f5d03b78ae905be7c842"
+}

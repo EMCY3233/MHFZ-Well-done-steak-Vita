@@ -1,0 +1,43 @@
+{
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "table_va": "0x8211d4b6",
+  "scope": "TBB target arithmetic from original ELF; branch semantics require instruction verification",
+  "cases": [
+    {
+      "result": 0,
+      "target": "0x8211d4c0"
+    },
+    {
+      "result": 1,
+      "target": "0x8211d4da"
+    },
+    {
+      "result": 2,
+      "target": "0x8211d4e6"
+    },
+    {
+      "result": 3,
+      "target": "0x8211d4f6"
+    },
+    {
+      "result": 4,
+      "target": "0x8211d4ec"
+    },
+    {
+      "result": 5,
+      "target": "0x8211d4c4"
+    },
+    {
+      "result": 6,
+      "target": "0x8211d4e4"
+    },
+    {
+      "result": 7,
+      "target": "0x8211d4ea"
+    },
+    {
+      "result": 8,
+      "target": "0x8211d4e8"
+    }
+  ]
+}

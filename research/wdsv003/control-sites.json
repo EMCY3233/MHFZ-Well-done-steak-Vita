@@ -1,0 +1,72 @@
+{
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "scope": "Original derived ELF bytes, not relocated Ghidra memory; bounded windows only",
+  "windows": [
+    {
+      "name": "delete-control",
+      "va": "0x8213c3ec",
+      "bytes": 96,
+      "sha256": "f9cf2145d503679b18dab5470647c0a063707d5bd23d6206d2d5eda7ecb688c2"
+    },
+    {
+      "name": "save-api-call",
+      "va": "0x8213ca60",
+      "bytes": 64,
+      "sha256": "da69e9d783953527f3d5b5331a2b804aa735d801a72d0c722c5737129167adcb"
+    },
+    {
+      "name": "relaunch",
+      "va": "0x821290b6",
+      "bytes": 80,
+      "sha256": "cf00ca812cdd98e1652402e04954535f55b36beeb38901007ca475d0c3a83693"
+    },
+    {
+      "name": "save-producer",
+      "va": "0x8213c092",
+      "bytes": 200,
+      "sha256": "1714b76f72950d89c7065ca4f66324151fec134805fd5fce9ba4469d3bc03001"
+    },
+    {
+      "name": "delete-producer",
+      "va": "0x8213c222",
+      "bytes": 200,
+      "sha256": "2a8752e6da4e3ab69fff244397c152c32b255c111aefa71289a28904b2c69b0f"
+    },
+    {
+      "name": "read-worker",
+      "va": "0x8213c4b2",
+      "bytes": 784,
+      "sha256": "c8b0f2f284d4f3c6bcd3bb7c6b088cf5977de68d1efbab9b8a555473504eb9db"
+    },
+    {
+      "name": "entry-selector",
+      "va": "0x8213c336",
+      "bytes": 32,
+      "sha256": "02316b5649804dcd4ec16aaafbcfc70337e930649d44ce7adfcbb9dfd8aa3283"
+    }
+  ],
+  "relaunch_strings": {
+    "0x827f35b8": "app0:eboot.bin",
+    "0x827f35c8": "argument",
+    "0x827f9ab8": "%s%s",
+    "0x827f9ac0": "savedata0:"
+  },
+  "vtable_candidate": [
+    "0x8213c001",
+    "0x8213c049",
+    "0x823d43e0",
+    "0x82b29970",
+    "0x61536339",
+    "0x61446576",
+    "0x6174",
+    "0x0",
+    "0x82b299f4",
+    "0x8213ea9d",
+    "0x8213eaab",
+    "0x8213eac1",
+    "0x8213eb5f",
+    "0x8213ebff",
+    "0x8213e827",
+    "0x8213ec01"
+  ]
+}

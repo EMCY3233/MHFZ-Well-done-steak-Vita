@@ -1,0 +1,33 @@
+{
+  "scope": "Own C value envelope integrated with existing C journal under ARM emulation and simulated callbacks; no VitaOS or filesystem",
+  "passed": 26,
+  "tests": [
+    "absent",
+    "initial live",
+    "live restart",
+    "confirmed tombstone",
+    "deleted restart",
+    "partial recreate rejected",
+    "partial recreate keeps deletion",
+    "recreate",
+    "recreated",
+    "partial deletion rejected",
+    "partial deletion keeps live",
+    "unacknowledged deletion",
+    "complete unacknowledged deletion recovered",
+    "empty live differs from deletion",
+    "empty live recovered",
+    "verify error no success",
+    "unacknowledged live recovered",
+    "valid outer invalid inner blocks",
+    "invalid inner cannot overwrite",
+    "same sequence live/deletion conflict rejected",
+    "conflict cannot overwrite",
+    "identical duplicate sequence accepted",
+    "same size different contents rejected",
+    "fresh",
+    "live for I/O failure",
+    "load I/O error"
+  ],
+  "elf_sha256": "62432576865eda8dcb94bdeaa9e6337ccd0e0e30bed62a93263228083e950d1b"
+}

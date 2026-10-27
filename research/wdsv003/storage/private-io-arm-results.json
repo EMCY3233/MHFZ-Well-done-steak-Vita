@@ -1,0 +1,151 @@
+{
+  "scope": "Own fixed-path C adapter; mocked sceIo APIs only, no disk or VitaOS",
+  "passed": 34,
+  "tests": [
+    {
+      "name": "missing",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace write",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace read",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace write",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace read",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace write",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace read",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace write",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace read",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace write",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace read",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace write",
+      "opens": 1
+    },
+    {
+      "name": "fixed namespace read",
+      "opens": 1
+    },
+    {
+      "name": "exact EOF",
+      "opens": 1
+    },
+    {
+      "name": "overlong file rejected",
+      "opens": 1
+    },
+    {
+      "name": "invalid namespace",
+      "opens": 0
+    },
+    {
+      "name": "invalid namespace read",
+      "opens": 0
+    },
+    {
+      "name": "invalid namespace",
+      "opens": 0
+    },
+    {
+      "name": "invalid namespace read",
+      "opens": 0
+    },
+    {
+      "name": "invalid slot",
+      "opens": 0
+    },
+    {
+      "name": "invalid slot",
+      "opens": 0
+    },
+    {
+      "name": "null context",
+      "opens": 0
+    },
+    {
+      "name": "null context read",
+      "opens": 0
+    },
+    {
+      "name": "invalid record size",
+      "opens": 0
+    },
+    {
+      "name": "invalid record size",
+      "opens": 0
+    },
+    {
+      "name": "invalid record size",
+      "opens": 0
+    },
+    {
+      "name": "read failure closes",
+      "opens": 1
+    },
+    {
+      "name": "write_error",
+      "opens": 1
+    },
+    {
+      "name": "zero_write",
+      "opens": 1
+    },
+    {
+      "name": "oversize",
+      "opens": 1
+    },
+    {
+      "name": "close_error",
+      "opens": 1
+    },
+    {
+      "name": "read close error",
+      "opens": 1
+    },
+    {
+      "name": "read over-report rejected",
+      "opens": 1
+    },
+    {
+      "name": "open denied",
+      "opens": 1
+    }
+  ],
+  "allowed_paths": [
+    "ux0:data/MHFZL0001/wdsv003/ini-a.bin",
+    "ux0:data/MHFZL0001/wdsv003/ini-b.bin",
+    "ux0:data/MHFZL0001/wdsv003/pri-a.bin",
+    "ux0:data/MHFZL0001/wdsv003/pri-b.bin",
+    "ux0:data/MHFZL0001/wdsv003/character-a.bin",
+    "ux0:data/MHFZL0001/wdsv003/character-b.bin"
+  ],
+  "elf_sha256": "3f76018f86d3f78f7c97e0174cd504d3511774ed3d2e60827f67d75e3aae893d"
+}

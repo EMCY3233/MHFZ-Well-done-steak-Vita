@@ -1,0 +1,34 @@
+{
+  "scope": "Defined Ghidra bodies only; not complete disassembly or runtime reachability",
+  "entries": 799,
+  "defined": 799,
+  "body_bytes_sum": 37570.0,
+  "computed_call_instructions": 0.0,
+  "unresolved_direct_calls": [
+    "8100be12->81ffe498",
+    "8100be38->81ffe4a2",
+    "81014b0a->81014786",
+    "8101f620->8101be66",
+    "8127189a->81512d04",
+    "812718de->81512d82",
+    "816c2260->81f10908",
+    "8201bc98->82026714",
+    "82094ba6->82094db2",
+    "82094bac->82094e2a",
+    "82094c04->82094db2",
+    "82094c0a->82094e2a",
+    "820a8d90->820954b2",
+    "820a8dbc->820954b2",
+    "820d11c2->820b897a"
+  ],
+  "sensitive_scan": {
+    "scope": "Existing Ghidra references only; up to 3 reverse edges, one representative shortest path per node; no indirect callback resolution, runtime effects or safety proof.",
+    "constructor_cells": 799,
+    "unique_roots": 799,
+    "cells_without_defined_entry": 0,
+    "sensitive_target_functions": 113,
+    "visited": 538,
+    "capped": false,
+    "matches": []
+  }
+}

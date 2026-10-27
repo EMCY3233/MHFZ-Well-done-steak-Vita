@@ -1,0 +1,413 @@
+{
+  "scope": "Read-only PRX module/import metadata; does not relocate or patch the image.",
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "module_info_va": "0x823d2aa0",
+  "info_version": 6,
+  "start_entry_rva": "0x11409dc",
+  "stub_top_va": "0x823d2b1c",
+  "stub_end_va": "0x823d326c",
+  "libraries": [
+    {
+      "descriptor_va": "0x823d2b1c",
+      "size": 52,
+      "name": "SceScreenShot",
+      "nid": "0xf26fc97d",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2b50",
+      "size": 52,
+      "name": "SceFios2",
+      "nid": "0x3ad4d630",
+      "functions": 9,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2b84",
+      "size": 52,
+      "name": "SceNgs",
+      "nid": "0xb01598d9",
+      "functions": 26,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2bb8",
+      "size": 52,
+      "name": "SceAudio",
+      "nid": "0x438bb957",
+      "functions": 5,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2bec",
+      "size": 52,
+      "name": "SceRtcUser",
+      "nid": "0x6704d3c6",
+      "functions": 3,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2c20",
+      "size": 52,
+      "name": "SceNet",
+      "nid": "0x6bf8b2a2",
+      "functions": 28,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2c54",
+      "size": 52,
+      "name": "SceNetCtl",
+      "nid": "0xc6083ae1",
+      "functions": 7,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2c88",
+      "size": 52,
+      "name": "SceHttp",
+      "nid": "0xe8f15cde",
+      "functions": 3,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2cbc",
+      "size": 52,
+      "name": "SceSsl",
+      "nid": "0xcaf5f2e9",
+      "functions": 2,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2cf0",
+      "size": 52,
+      "name": "SceSysmodule",
+      "nid": "0x3fcf19d",
+      "functions": 2,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2d24",
+      "size": 52,
+      "name": "SceAppUtil",
+      "nid": "0x48e01d74",
+      "functions": 5,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2d58",
+      "size": 52,
+      "name": "SceNpManager",
+      "nid": "0xd8835093",
+      "functions": 7,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2d8c",
+      "size": 52,
+      "name": "SceNpCommon",
+      "nid": "0xecb62224",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2dc0",
+      "size": 52,
+      "name": "SceCommonDialog",
+      "nid": "0xe537816c",
+      "functions": 31,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2df4",
+      "size": 52,
+      "name": "SceCtrl",
+      "nid": "0xd197e3c7",
+      "functions": 2,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2e28",
+      "size": 52,
+      "name": "SceTouch",
+      "nid": "0x3e4f4a81",
+      "functions": 2,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2e5c",
+      "size": 52,
+      "name": "SceNpTrophy",
+      "nid": "0x4332c10d",
+      "functions": 7,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2e90",
+      "size": 52,
+      "name": "SceNpActivity",
+      "nid": "0xfef492ed",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2ec4",
+      "size": 52,
+      "name": "SceGxm",
+      "nid": "0xf76b66bd",
+      "functions": 82,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2ef8",
+      "size": 52,
+      "name": "SceDisplayUser",
+      "nid": "0x4faacd11",
+      "functions": 1,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2f2c",
+      "size": 52,
+      "name": "SceDisplay",
+      "nid": "0x5ed8f994",
+      "functions": 3,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2f60",
+      "size": 52,
+      "name": "SceGameUpdate",
+      "nid": "0x2dd9a62d",
+      "functions": 3,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2f94",
+      "size": 52,
+      "name": "SceIme",
+      "nid": "0xd2553017",
+      "functions": 3,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2fc8",
+      "size": 52,
+      "name": "SceAppMgrUser",
+      "nid": "0xa6605d6f",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d2ffc",
+      "size": 52,
+      "name": "SceJpegEncUser",
+      "nid": "0x3748bfd3",
+      "functions": 5,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3030",
+      "size": 52,
+      "name": "SceNpUtility",
+      "nid": "0x7b47d9cf",
+      "functions": 7,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3064",
+      "size": 52,
+      "name": "ScePower",
+      "nid": "0x1082da7f",
+      "functions": 1,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3098",
+      "size": 52,
+      "name": "SceUlt",
+      "nid": "0x220668a5",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d30cc",
+      "size": 52,
+      "name": "SceLibc",
+      "nid": "0xbe43bb07",
+      "functions": 97,
+      "variables": 4,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3100",
+      "size": 52,
+      "name": "SceLibm",
+      "nid": "0xcdae3c7d",
+      "functions": 29,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3134",
+      "size": 52,
+      "name": "SceLibstdcxx",
+      "nid": "0xf7629240",
+      "functions": 36,
+      "variables": 18,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3168",
+      "size": 52,
+      "name": "SceLibKernel",
+      "nid": "0xcae9ace6",
+      "functions": 30,
+      "variables": 1,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d319c",
+      "size": 52,
+      "name": "SceIofilemgr",
+      "nid": "0xf2ff276e",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d31d0",
+      "size": 52,
+      "name": "SceProcessmgr",
+      "nid": "0x2dd91812",
+      "functions": 1,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3204",
+      "size": 52,
+      "name": "SceSysmem",
+      "nid": "0x37fe725a",
+      "functions": 4,
+      "variables": 0,
+      "tls_variables": 0
+    },
+    {
+      "descriptor_va": "0x823d3238",
+      "size": 52,
+      "name": "SceThreadmgr",
+      "nid": "0x859a24b1",
+      "functions": 11,
+      "variables": 0,
+      "tls_variables": 0
+    }
+  ],
+  "selected_imports": [
+    {
+      "name": "sceAppUtilSaveDataSlotDelete",
+      "library": "SceAppUtil",
+      "nid": "0x266a7646",
+      "stub_va": "0x823d1230",
+      "nid_cell": "0x823d35ac",
+      "pointer_cell": "0x823d3d78"
+    },
+    {
+      "name": "sceAppUtilSaveDataDataSave",
+      "library": "SceAppUtil",
+      "nid": "0x607647ba",
+      "stub_va": "0x823d1240",
+      "nid_cell": "0x823d35b0",
+      "pointer_cell": "0x823d3d7c"
+    },
+    {
+      "name": "sceAppUtilSaveDataSlotGetParam",
+      "library": "SceAppUtil",
+      "nid": "0x93f0d89f",
+      "stub_va": "0x823d1250",
+      "nid_cell": "0x823d35b4",
+      "pointer_cell": "0x823d3d80"
+    },
+    {
+      "name": "sceAppUtilInit",
+      "library": "SceAppUtil",
+      "nid": "0xdaffe671",
+      "stub_va": "0x823d1260",
+      "nid_cell": "0x823d35b8",
+      "pointer_cell": "0x823d3d84"
+    },
+    {
+      "name": "sceAppMgrLoadExec",
+      "library": "SceAppMgrUser",
+      "nid": "0xe6774abc",
+      "stub_va": "0x823d1c00",
+      "nid_cell": "0x823d3820",
+      "pointer_cell": "0x823d3fec"
+    },
+    {
+      "name": "sceIoOpen",
+      "library": "SceLibKernel",
+      "nid": "0x6c60ac61",
+      "stub_va": "0x823d27c0",
+      "nid_cell": "0x823d3b18",
+      "pointer_cell": "0x823d42e4"
+    },
+    {
+      "name": "sceIoClose",
+      "library": "SceIofilemgr",
+      "nid": "0xc70b8886",
+      "stub_va": "0x823d2920",
+      "nid_cell": "0x823d3b70",
+      "pointer_cell": "0x823d433c"
+    },
+    {
+      "name": "sceIoRead",
+      "library": "SceIofilemgr",
+      "nid": "0xfdb32293",
+      "stub_va": "0x823d2930",
+      "nid_cell": "0x823d3b74",
+      "pointer_cell": "0x823d4340"
+    }
+  ],
+  "initializer_candidate": {
+    "start_va": "0x82cb3628",
+    "end_va": "0x82cb42a4",
+    "entries": 799,
+    "nonzero": 799,
+    "sha256": "6248e88a7c42d3557800b92b4fa4681565b27351f076b848a9312cf93a048d7e",
+    "scope": "Range referenced by static startup helper; entries not executed or individually traced"
+  },
+  "limits": [
+    "Raw stored pointers mapped only; no runtime binding/relocation or hook coverage proved.",
+    "Selected names are cross-checks against prior Ghidra NID resolution, not private server code."
+  ]
+}

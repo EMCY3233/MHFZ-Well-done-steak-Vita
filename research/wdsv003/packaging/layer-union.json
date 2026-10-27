@@ -1,0 +1,47 @@
+{
+  "scope": "Historical inventory only; hypothetical app < patch < rePatch precedence; no observed mounts, copying, package or execution.",
+  "layers": {
+    "app": {
+      "files": 4492,
+      "bytes": 2166676271
+    },
+    "patch": {
+      "files": 3666,
+      "bytes": 2934729913
+    },
+    "rePatch": {
+      "files": 103,
+      "bytes": 111084243
+    }
+  },
+  "transitions": [
+    {
+      "layer": "app",
+      "new": 4492,
+      "identical": 0,
+      "different": 0
+    },
+    {
+      "layer": "patch",
+      "new": 3102,
+      "identical": 56,
+      "different": 508
+    },
+    {
+      "layer": "rePatch",
+      "new": 2,
+      "identical": 0,
+      "different": 101
+    }
+  ],
+  "union_files": 7596,
+  "union_bytes": 4036150283,
+  "winning_layers": {
+    "patch": 3596,
+    "app": 3897,
+    "rePatch": 103
+  },
+  "metadata_files_retained": 37,
+  "warning": "Union includes installation metadata and is not an installable or isolated staging tree. Hashes are inventory claims, not fresh verification.",
+  "inventory_sha256": "8b47aa9a185431ca69183e602446c63d3576d9ce03084d141e013375f349ea85"
+}

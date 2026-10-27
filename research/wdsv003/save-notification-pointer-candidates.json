@@ -1,0 +1,35 @@
+{
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "scope": "Literal stored pointer scan in file-backed PT_LOAD; no callback or code-flow proof",
+  "matches": [],
+  "relocation_target_matches": [
+    {
+      "record_segment": 2,
+      "record_offset": 3796632,
+      "site": "0x8211d5aa",
+      "code": 47,
+      "target": "0x8211d219"
+    },
+    {
+      "record_segment": 2,
+      "record_offset": 3796644,
+      "site": "0x8211d5ae",
+      "code": 48,
+      "target": "0x8211d219"
+    },
+    {
+      "record_segment": 2,
+      "record_offset": 4240524,
+      "site": "0x823cd526",
+      "code": 47,
+      "target": "0x8211d219"
+    },
+    {
+      "record_segment": 2,
+      "record_offset": 4240536,
+      "site": "0x823cd52a",
+      "code": 48,
+      "target": "0x8211d219"
+    }
+  ]
+}
