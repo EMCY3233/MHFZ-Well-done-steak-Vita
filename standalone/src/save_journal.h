@@ -16,6 +16,9 @@ typedef struct {
  * Buffers must be distinct. No sequence wrapping; ties choose slot 0.
  */
 int mhfz_journal_load(mhfz_save_journal *,uint8_t *,uint32_t,uint32_t *);
+/* Same contract, but equal sequence with different contents is rejected and
+ * leaves writes disabled. Identical equal-sequence copies remain acceptable. */
+int mhfz_journal_load_strict(mhfz_save_journal *,uint8_t *,uint32_t,uint32_t *);
 /* Suitable as save_service commit callback. I/O failure disables further commits
  * until reload; old slot remains untouched. A complete unacknowledged record
  * may be selected on restart after an uncertain write/verification failure.
