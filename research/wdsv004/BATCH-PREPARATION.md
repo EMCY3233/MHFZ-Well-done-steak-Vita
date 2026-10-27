@@ -1,0 +1,7 @@
+# Batch preparation reference
+
+batch_plan.py produces an immutable plan without file access. A complete committed baseline is mandatory; absent manifests never initialize storage. Changed members target slots opposite their selected references; unchanged references remain identical. Each replacement must be a verified encoded record with the next sequence, within the existing native payload limit of 163840 bytes. The manifest generation exceeds all structurally valid observed manifests; overflow blocks planning.
+
+Seven tests cover interruption prefixes, incomplete-member fallback, unchanged references, empty live data, deletion, newly introduced members, invalid records, capacity, and generation exhaustion. Together with snapshot recovery, 22 Python tests pass. These are synthetic reference tests, not native writer or durability tests.
+
+The future writer must exclusively own the baseline and records throughout preparation, validate that its baseline has not changed, write and read back all candidate records, then publish and read back the complete manifest. An uncertain result requires recovery before further writes. This reference implements no locks, I/O, native digest, native batch writer, initialization, or migration. It does not raise the native capacity for 512000-byte INI-DATA. Two slots still do not guarantee two complete historical generations.
