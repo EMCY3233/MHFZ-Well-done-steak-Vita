@@ -1,0 +1,30 @@
+{
+  "scope": "Native complete-snapshot selection and native SHA under ARM; no digest hook/I/O/client/VitaOS",
+  "passed": 23,
+  "cases": [
+    "both absent",
+    "committed empty",
+    "orphan remains invisible",
+    "complete newer generation",
+    "whole older generation after second member truncation",
+    "older after manifest truncation",
+    "identical tie first slot",
+    "conflicting equal generation rejected",
+    "no complete snapshot blocks",
+    "corrupt is not absent",
+    "wrong record sequence",
+    "wrong record slot",
+    "absent empty live tombstone distinct",
+    "bad record 0",
+    "bad record 8",
+    "bad record 12",
+    "bad record 16",
+    "bad record 20",
+    "bad record 24",
+    "bad record 28",
+    "bad record 32",
+    "bad record 36",
+    "digest callback failure"
+  ],
+  "elf_sha256": "5d66c33bff364aa8e5c2c2fb94834144b043e70693a30754de65c5720f3789e8"
+}
