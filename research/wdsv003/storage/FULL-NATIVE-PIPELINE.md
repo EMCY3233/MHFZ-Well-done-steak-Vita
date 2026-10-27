@@ -1,0 +1,9 @@
+# Recuperación nativa al tamaño máximo del laboratorio
+
+27-10-2026. check_full_native_pipeline_arm.py conecta el backend sceIo propio al mismo diario con capacidad163876 bytes por registro. Pasa 39 casos en emulación ARM: incluye cargas sintéticas de150820 y163840 bytes, relectura exacta, sobrescritura parcial fallida con recuperación del valor anterior y borrado con recuperación de su marca. La carga163841 se rechaza sin abrir archivos.
+
+El conjunto conserva los casos de la cadena pequeña. Las APIs están sustituidas y los archivos viven en RAM Python; no son pruebas VitaOS ni de partidas comerciales. Se usan fragmentos normales de4096 bytes y de2 para inyectar fallos tras escritura parcial. Los seis buffers estáticos del arnés suman983256 bytes: no equivalen al consumo total del cliente ni demuestran que haya memoria disponible al integrarlo.
+
+Éxito de relectura y cierre no garantiza persistencia física. La prueba de ausencia presupone el directorio padre correcto; el código de error documentado en Vita3K puede representar archivo o directorio inexistente. La integración debe verificar esa precondición y no crear automáticamente una sesión nueva ante un montaje incorrecto.
+
+Con esto queda cubierta la diferencia de tamaño entre la prueba nativa pequeña y el límite de laboratorio. No hace falta otra variante de contador ni otro backend equivalente para afirmar este resultado. El siguiente obstáculo es integración real: dónde alojar y activar el adaptador antes de los inicializadores, cómo conservar metadatos y relocaciones y cómo demostrar identidad/montajes privados. El contenedor SELF mantiene sus anomalías documentadas y no se ha reconstruido.
