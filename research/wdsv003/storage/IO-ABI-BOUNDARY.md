@@ -10,4 +10,12 @@ No se corrigió la firma del cliente por suposición. Tampoco se implementó aú
 
 sceIoSyncByFd aparece con segundo argumento documentado como desconocido en el SDK instalado. Por tanto, añadir una llamada con cero no demostraría durabilidad ante pérdida eléctrica. La lectura posterior sigue siendo una comprobación de contenido, no garantía de persistencia física.
 
-Próximo análisis acotado: inspeccionar el wrapper sceIoOpen disponible en las bibliotecas propias del SDK y la preparación del cuarto registro en el llamante del cliente ya identificado. Después fijar una frontera explícita de firmas y errores. No hay backend nativo nuevo, parche ni autorización de prueba física.
+## Contraste posterior: son exportaciones distintas
+
+12:38 UTC. La base db/360/SceIofilemgr.yml asigna **_sceIoOpen a NID 0xcc67b6fd**, mientras db/360/SceLibKernel.yml asigna **sceIoOpen a 0x6c60ac61**. El cliente importa este último desde SceLibKernel. Esto resuelve la ambigüedad de identificación: el puntero de opciones del export de cuatro argumentos no debe trasladarse al hook del wrapper de tres argumentos solo por semejanza de nombres.
+
+La ventana original del llamante prepara r0 con la ruta, r1=1 y r2=0 inmediatamente antes de 8213c618. No prepara r3 después de una llamada previa que puede alterarlo. Es coherente con el contrato de tres argumentos del wrapper; no demuestra por sí sola cómo funciona su implementación interna.
+
+El miembro SceLibKernel_SceLibKernel_sceIoOpen.o de libSceLibKernel_stub.a contiene metadatos de enlace y NID 0x6c60ac61, no el cuerpo del wrapper del sistema. Inspeccionarlo no permite reconstruir manejo de errores o un cuarto argumento interno. La búsqueda en libc.a no localizó una implementación sceIoOpen; no se deduce ausencia en otras bibliotecas o en el sistema.
+
+Próximo análisis acotado: ABI de lectura/escritura/cierre y fuente primaria para códigos de error de archivos antes de implementar callbacks. La elección de sceIoOpen con tres argumentos ya está respaldada por biblioteca, NID, declaración y llamante; queda sin demostrar su comportamiento físico. No hay backend nativo nuevo, parche ni autorización de prueba física.
