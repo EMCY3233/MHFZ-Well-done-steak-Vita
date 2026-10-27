@@ -29,3 +29,13 @@ La política Python publicada sigue siendo un modelo sin hooks. La integración 
 Siguiente trabajo: identificar consumidores del resultado +0x9c, cerrar la selección de entradas y revisar tratamiento de lecturas cortas y errores antes de diseñar el ABI nativo. No atribuir significado a códigos internos solo por su valor ni afirmar que todo acceso del cliente esté enumerado.
 
 Evidencia local: save-completion-and-entry-selection.json, save-state4-worker.json, ventanas read-worker/entry-selector y logs. Solo el resumen, herramienta propia y metadatos son publicables; no pseudocódigo ni ventanas binarias.
+
+## Lecturas cortas: condición contrastada
+
+Continuación 27-10-2026: después de sceIoRead en 8213c628, las instrucciones 8213c62c/8213c62e comparan el retorno con cero y toman la rama de error solo si es negativo. En ese tramo no comparan la cantidad devuelta con la solicitada. El recorrido no negativo cierra el descriptor y continúa. Esto permite que una lectura corta alcance esa continuación local; no demuestra aceptación de los datos por validadores posteriores. No etiquetar automáticamente el resultado local cero como lectura completa.
+
+El adaptador nativo deberá conservar cantidad solicitada/devuelta y diferenciar lectura corta, fin de archivo y error, antes de declarar datos completos. La lectura parcial no se corrige rellenando ceros ni fabricando éxito. La política sintética actual verifica identidad de bytes en guardado, pero no es todavía un adaptador de lectura del cliente.
+
+La búsqueda acotada de instrucciones definidas con desplazamiento literal +0x9c en 8211b000–8211e000 no encontró candidatos. Es un resultado negativo de esa consulta, no ausencia de consumidores: quedan accesos indirectos, alias y zonas fuera del intervalo. No repetirla sin una pista nueva.
+
+
