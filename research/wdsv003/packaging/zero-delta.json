@@ -1,0 +1,31 @@
+{
+  "scope": "Compare relocation expectations at declared bases with original stored values.",
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "segments": [
+    {
+      "segment": 2,
+      "comparison": {
+        "records": 425605,
+        "counts": {
+          "47": 176269,
+          "48": 176269,
+          "2": 73067
+        },
+        "issues": {},
+        "mismatch_locations": []
+      }
+    },
+    {
+      "segment": 3,
+      "comparison": {
+        "records": 49614,
+        "counts": {
+          "2": 49614
+        },
+        "issues": {},
+        "mismatch_locations": []
+      }
+    }
+  ],
+  "limits": "Read-only zero-delta consistency; no changed bases, writing, relocation ordering/overlap proof, SELF reconstruction or runtime validation."
+}
