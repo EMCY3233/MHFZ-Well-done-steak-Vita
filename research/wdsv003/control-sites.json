@@ -19,6 +19,18 @@
       "va": "0x821290b6",
       "bytes": 80,
       "sha256": "cf00ca812cdd98e1652402e04954535f55b36beeb38901007ca475d0c3a83693"
+    },
+    {
+      "name": "save-producer",
+      "va": "0x8213c092",
+      "bytes": 200,
+      "sha256": "1714b76f72950d89c7065ca4f66324151fec134805fd5fce9ba4469d3bc03001"
+    },
+    {
+      "name": "delete-producer",
+      "va": "0x8213c222",
+      "bytes": 200,
+      "sha256": "2a8752e6da4e3ab69fff244397c152c32b255c111aefa71289a28904b2c69b0f"
     }
   ],
   "relaunch_strings": {
