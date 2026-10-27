@@ -74,6 +74,12 @@ def record(seq,payload):
     h=b'MZSAV001'+struct.pack('<III',seq,len(payload),zlib.crc32(payload));return h+struct.pack('<I',zlib.crc32(h))+payload
 slots={0:record(1,b'not-a-value')};load('valid outer invalid inner blocks',-1)
 count=len(writes);commit('invalid inner cannot overwrite',b'X',0,-1);assert len(writes)==count
+live=b'MZV1'+struct.pack('<II',0,1)+b'X'
+tomb=b'MZV1'+struct.pack('<II',1,0)
+slots={0:record(7,live),1:record(7,tomb)};load('same sequence live/deletion conflict rejected',-1)
+count=len(writes);commit('conflict cannot overwrite',b'Y',0,-1);assert len(writes)==count
+slots={0:record(7,live),1:record(7,live)};load('identical duplicate sequence accepted',1,b'X')
+slots={0:record(7,live),1:record(7,live[:-1]+b'Y')};load('same size different contents rejected',-1)
 slots={};load('fresh',0);commit('live for I/O failure',b'LAST',0,0)
 mode='read_error';load('load I/O error',-2)
 report={'scope':'Own C value envelope integrated with existing C journal under ARM emulation and simulated callbacks; no VitaOS or filesystem','passed':len(tests),'tests':tests,'elf_sha256':hashlib.sha256(elf).hexdigest()}
