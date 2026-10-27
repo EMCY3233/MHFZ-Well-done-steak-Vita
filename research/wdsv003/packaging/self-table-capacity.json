@@ -1,0 +1,28 @@
+{
+  "scope": "Read-only table capacity arithmetic; unclassified header bytes are not free space",
+  "source_sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+  "program_headers": {
+    "offset": 224,
+    "count": 5,
+    "stride": 32,
+    "end": 384,
+    "next_table": 384,
+    "sixth_end": 416,
+    "overlap_if_extended_in_place": 32
+  },
+  "section_info": {
+    "offset": 384,
+    "count": 5,
+    "stride": 32,
+    "end": 544,
+    "next_structure": 544,
+    "sixth_end": 576,
+    "overlap_if_extended_in_place": 32
+  },
+  "control_info": {
+    "offset": 560,
+    "size": 704,
+    "end": 1264
+  },
+  "limits": "Does not parse authentication/control records or approve moving tables. No rewrite or loader execution."
+}
