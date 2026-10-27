@@ -10,4 +10,10 @@ Durante el análisis se creó temporalmente una función artificial en8211d230, 
 
 La preparación del cuarto registro en la llamada a8212f272 debe contrastarse con la estructura y firma efectiva: su pseudocódigo actual muestra solo tres parámetros. No descartar el valor+a8 por esa salida automática ni convertirlo a un código propio sin estudiar instrucciones del callee.
 
-Próximo análisis: rastrear el cuarto registro dentro de8212f272 y el contrato de SaveDataDialog; después buscar el vínculo de la entrada8211d218 con el estado asíncrono. El consumidor+9c sigue sin identificar. Sin pruebas físicas, paquete o cambios en firmware/plugins/originales.
+## Seguimiento del cuarto registro en instrucciones originales
+
+16:53 UTC. El helper8212f272 sobrescribe r3 en8212f276 con una constante antes de usar su valor entrante. Conserva únicamente r0/r1/r2 en registros locales. En este cuerpo el valor+a8 preparado por el llamante no se consume; el pseudocódigo de tres argumentos coincide con ese detalle de instrucciones. Esto no elimina otros posibles usos de+a8 ni demuestra que el llamante fuera escrito originalmente con tres parámetros.
+
+La ruta conserva r1=9 y r2=1 en estructuras antes de SaveDataDialogInit. No se atribuye nombre semántico a esos campos sin contrastar la estructura. Tras la inicialización, retorno cero de la API permite marcar mediante operación exclusiva el objeto de diálogo; retorno distinto de cero devuelve rechazo. Es estado de presentación, no confirmación de persistencia del diario ni lectura de+9c.
+
+Próximo análisis: registro o referencias indirectas a8211d218 y relación de sus argumentos con el estado asíncrono. No seguir interpretando el r3 descartado como traducción de error del guardado. El consumidor+9c sigue sin identificar. Sin pruebas físicas, paquete o cambios en firmware/plugins/originales.
