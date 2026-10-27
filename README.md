@@ -1,11 +1,11 @@
 # MHFZ — Well Done Steak Vita
 
-Preparación parcial de una política experimental de almacenamiento. No incluye cliente, recursos, informes ni metadatos de los archivos privados del usuario.
+Investigación de ejecución autónoma de Monster Hunter Frontier Z en PS Vita.
 
-El código de research/wdsv003/storage es propio y funciona únicamente como modelo Python con almacenamiento simulado en RAM. No intercepta llamadas de un juego, no accede a la consola y no certifica aislamiento ni durabilidad física.
+Preparación parcial: [informe WDSV-003](research/wdsv003/README.md), [almacenamiento](research/wdsv003/storage/README.md) e [inventario y empaquetado](research/wdsv003/packaging/REPORT.md).
 
-Pruebas: `python -m unittest discover -s research/wdsv003/storage -p 'test_*.py' -v` (20 casos locales satisfactorios).
+Incluye herramientas propias, informes técnicos y metadatos cuya publicación autorizó el usuario. No incluye ejecutables comerciales, recursos protegidos, credenciales ni partidas.
 
-Se rechazan nombres arbitrarios y estados inválidos, se verifica antes de confirmar una operación, se bloquea tras efectos inciertos y se usa una marca persistente simulada de borrado para recuperación. No simula pérdida de energía ni corrupción posterior de la marca de borrado.
+24 pruebas locales satisfactorias: 20 de almacenamiento y recuperación simulados y 4 del lector ELF. No hay hooks integrados, cliente autónomo ni paquete seguro validado. Instalación y ejecución física requieren autorización específica.
 
-La integración con un cliente real, traducción de códigos de error, montajes y empaquetado quedan pendientes. La instalación y ejecución física requieren autorización específica. No se modifica firmware, plugins ni originales.
+Pruebas: `python -m unittest discover -s research/wdsv003/storage -p 'test_*.py' -v` y la misma orden con `packaging`.

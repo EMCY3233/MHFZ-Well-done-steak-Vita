@@ -1,0 +1,22 @@
+[
+  {
+    "path": "evidence\\vita\\current-ftp\\app-eboot.bin",
+    "sha256": "26262797db444d5b443178a41aea0bb2c38b50c61755b993d3ae073b11f45196",
+    "unchanged": true
+  },
+  {
+    "path": "evidence\\vita\\current-ftp\\patch-eboot.bin",
+    "sha256": "9084988477dc960f2bec8116e9853c37bf4221a55e7bf0d8b6b39288052dd28c",
+    "unchanged": true
+  },
+  {
+    "path": "evidence\\vita\\current-ftp\\rePatch-eboot.bin",
+    "sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+    "unchanged": true
+  },
+  {
+    "path": "evidence\\vita\\derived\\rePatch-eboot.elf",
+    "sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+    "unchanged": true
+  }
+]

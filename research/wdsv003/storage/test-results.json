@@ -1,0 +1,10 @@
+{
+  "scope": "Host Python reference policy with memory fault injection; no Vita hooks or filesystem durability",
+  "tests": 9,
+  "failures": 0,
+  "errors": 0,
+  "files": {
+    "storage_policy.py": "02e7b887dd531d521c072585b8296c92540960dc0054b65e52e6dfe6a4f9951c",
+    "test_storage_policy.py": "056cde49a943f39ae434ae2ec2134f4ccca76d228006803a6072f2eafbc80aa9"
+  }
+}

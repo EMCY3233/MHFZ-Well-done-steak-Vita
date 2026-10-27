@@ -1,0 +1,15 @@
+{
+  "classification": "Local source references, not runtime evidence",
+  "apputil_header": {
+    "path": "analysis-tools/vitasdk-win-20260825/arm-vita-eabi/include/psp2/apputil.h",
+    "sha256": "34afd0a1ef4806fe3c71eb57f8a857819f4db7bf5de4a3b64b9ba970a0a26f68"
+  },
+  "journal_c": {
+    "path": "standalone/src/save_journal.c",
+    "sha256": "9a1ff0693e42a8c962f3704a8ad32379f3620c88e61cd52cf751cf889bca3ac6"
+  },
+  "journal_h": {
+    "path": "standalone/src/save_journal.h",
+    "sha256": "8f92abc7965afed6161b077cd63171b284295cdf4a10eddadce8caa487646a54"
+  }
+}
