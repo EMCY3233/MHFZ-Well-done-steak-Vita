@@ -18,19 +18,25 @@ class Coordinator:
         self.write_manifest = write_manifest
         self.blocked = False
 
+    def _observe(self):
+        manifests, records = self.read_all()
+        manifests, records = tuple(manifests), dict(records)
+        if len(manifests) != 2 or any(x is not None and type(x) is not bytes for x in manifests):
+            raise ValueError('two immutable manifest slots required')
+        if any(type(x) is not bytes for x in records.values()):
+            raise ValueError('immutable record bytes required')
+        return manifests, records
+
     def commit(self, replacements):
         if self.blocked:
             raise RuntimeError('writer epoch blocked; independent recovery required')
         try:
-            manifests, records = self.read_all()
-            # Freeze the baseline before any callback can reuse its containers.
-            manifests = tuple(manifests)
-            records = dict(records)
+            manifests, records = self._observe()
             plan = prepare(manifests, records, replacements)
             for logical, slot, raw in plan.writes:
                 if self.write_record(logical, slot, raw) is not True:
                     raise RuntimeError('record completion uncertain')
-            observed_m, observed_r = self.read_all()
+            observed_m, observed_r = self._observe()
             if tuple(observed_m) != manifests:
                 raise RuntimeError('baseline changed during preparation')
             for logical, slot, raw in plan.writes:
@@ -45,7 +51,7 @@ class Coordinator:
                 raise RuntimeError('candidate incomplete')
             if self.write_manifest(plan.manifest_slot,plan.manifest) is not True:
                 raise RuntimeError('manifest completion uncertain')
-            final_m, final_r = self.read_all()
+            final_m, final_r = self._observe()
             if tuple(final_m) != tuple(candidate):
                 raise RuntimeError('manifest readback mismatch')
             final = recover(final_m,final_r)
