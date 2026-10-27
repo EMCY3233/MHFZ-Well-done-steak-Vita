@@ -1,0 +1,34 @@
+{
+  "scope": "Read-only framing of main relocation records; no decoding of fixup semantics.",
+  "source_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "segments": [
+    {
+      "segment": 2,
+      "sha256": "016e1512d7a107fcf4a04cf8ff0333f8aded5e873532a5a3c89d3a092b194aa2",
+      "framing": {
+        "complete": true,
+        "bytes": 5107260,
+        "records": 425605,
+        "forms": {
+          "0": 425605
+        }
+      }
+    },
+    {
+      "segment": 3,
+      "sha256": "cdbd081ebd8cde639387381b28f475656de3184bc60dd9f3cfc662482ee35af6",
+      "framing": {
+        "complete": true,
+        "bytes": 595368,
+        "records": 49614,
+        "forms": {
+          "0": 49614
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Lengths/forms only; offsets, stateful relative forms, segment indexes and relocation effects not decoded or validated.",
+    "Not variable-import reftables. No executable bytes changed."
+  ]
+}
