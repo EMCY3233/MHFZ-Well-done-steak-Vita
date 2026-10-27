@@ -13,3 +13,8 @@ Ahora existen ubicaciones verificables para estudiar mediación de importaciones
 El RVA start_entry de SceModuleInfo es 011409dc. No se trata e_entry como si fuera la dirección normal de main, ni se anuncia un arranque offline por localizar metadatos. Antes de insertar código deben analizarse la entrada de módulo, disposición del espacio añadido y relocaciones asociadas. No se ha creado SELF/VPK modificado ni llamado al cargador real.
 
 imports.json contiene únicamente hashes, direcciones, nombres de bibliotecas, NID y cantidades autorizados. Las tablas/binarios completos siguen locales. Pendiente probar límites de entradas sintéticas del parser antes de usarlo para decisiones de transformación.
+
+## Validación del lector
+
+El lector se separó en prx_tables.py para probarlo sin archivos del juego. Seis pruebas nuevas cubren layouts0x24/0x34/0x2c, todos los truncamientos de descriptor, punteros obligatorios nulos, rangosLOAD/BSS/overflow y nombres sin terminador o noASCII. Junto con las cuatro pruebas ELF anteriores pasan diez pruebas. La nueva lectura bytea-byte del nombre acepta su terminador en el último byte respaldado, sin exigir96bytes posteriores. El inventario real sigue en36descriptores/476funciones y ochoAPIseleccionadas. Estas pruebas no validan relocaciones ni empaquetado.
+
