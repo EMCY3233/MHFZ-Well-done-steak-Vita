@@ -20,23 +20,23 @@
     {
       "directory": "research/wdsv003/storage",
       "exit_code": 0,
-      "output": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.019s\n\nOK"
+      "output": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.018s\n\nOK"
     },
     {
       "directory": "research/wdsv003/packaging",
       "exit_code": 0,
-      "output": "..............................................\n----------------------------------------------------------------------\nRan 46 tests in 0.003s\n\nOK"
+      "output": "..............................................\n----------------------------------------------------------------------\nRan 46 tests in 0.005s\n\nOK"
     },
     {
       "directory": "research/wdsv004",
       "exit_code": 0,
-      "output": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nOK"
+      "output": ".........................\n----------------------------------------------------------------------\nRan 25 tests in 0.004s\n\nOK"
     }
   ],
   "success": true,
   "physical_execution_allowed": false,
   "limits": [
-    "No batch writer or native manifest selector.",
+    "Native manifest/record/snapshot readers tested under ARM with Python digest callback; no native SHA or native batch writer.",
     "No client hook, isolated resource mount or AppUtil identity verified.",
     "SELF transformation gate remains blocked.",
     "No identity/Sign/Entrance/Channel integration produced in this delivery."
