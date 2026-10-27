@@ -15,7 +15,8 @@ def read(va,size):
    return data[off+va-addr:off+va-addr+size]
  raise ValueError(hex(va))
 windows=[('delete-control',0x8213c3ec,0x60),('save-api-call',0x8213ca60,0x40),('relaunch',0x821290b6,0x50),
-         ('save-producer',0x8213c092,0xc8),('delete-producer',0x8213c222,0xc8)]
+         ('save-producer',0x8213c092,0xc8),('delete-producer',0x8213c222,0xc8),
+         ('read-worker',0x8213c4b2,0x310),('entry-selector',0x8213c336,0x20)]
 rows=[]
 obj=ROOT/'analysis-tools/vitasdk-win-20260825/bin/arm-vita-eabi-objdump.exe'
 for name,va,size in windows:
@@ -23,7 +24,7 @@ for name,va,size in windows:
  asm=subprocess.check_output([str(obj),'-D','-b','binary','-m','arm','-M','force-thumb','--adjust-vma='+hex(va),str(target)],text=True)
  (OUT/(name+'.asm.txt')).write_text(asm,encoding='utf-8')
  rows.append(dict(name=name,va=hex(va),bytes=size,sha256=hashlib.sha256(raw).hexdigest()))
-strings={hex(a):read(a,64).split(b'\0')[0].decode('ascii','backslashreplace') for a in [0x827f35b8,0x827f35c8]}
+strings={hex(a):read(a,64).split(b'\0')[0].decode('ascii','backslashreplace') for a in [0x827f35b8,0x827f35c8,0x827f9ab8,0x827f9ac0]}
 vt=struct.unpack('<16I',read(0x82b29960,64))
 result=dict(source_sha256=expected,scope='Original derived ELF bytes, not relocated Ghidra memory; bounded windows only',windows=rows,relaunch_strings=strings,vtable_candidate=[hex(x) for x in vt])
 (OUT/'control-sites.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
