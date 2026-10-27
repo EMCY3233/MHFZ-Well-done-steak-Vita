@@ -398,6 +398,14 @@
       "pointer_cell": "0x823d4340"
     }
   ],
+  "initializer_candidate": {
+    "start_va": "0x82cb3628",
+    "end_va": "0x82cb42a4",
+    "entries": 799,
+    "nonzero": 799,
+    "sha256": "6248e88a7c42d3557800b92b4fa4681565b27351f076b848a9312cf93a048d7e",
+    "scope": "Range referenced by static startup helper; entries not executed or individually traced"
+  },
   "limits": [
     "Raw stored pointers mapped only; no runtime binding/relocation or hook coverage proved.",
     "Selected names are cross-checks against prior Ghidra NID resolution, not private server code."
