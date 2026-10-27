@@ -8,6 +8,12 @@ En el trabajador de guardado, la entrada4 seleccionada recibe temporalmente tama
 
 Esto concreta el límite del backend: **INI-DATA puede requerir una capacidad de512000 bytes en esa ruta**, mayor que163840 del laboratorio. No derivar el límite de la prueba de cuerpo de red150820 ni asumir que el nombre INI indica un archivo de configuración pequeño. PRI-DATA y la entrada mayor tienen tamaños y preparación distintos.
 
-Falta contrastar las instrucciones de los argumentos del registro y rastrear el método virtual que llena INI-DATA, incluida longitud real y validación al leer. Antes de aumentar límites debe revisarse el presupuesto de buffers y el formato de registro propio. No se modifica todavía el límite ni se fabrica un INI-DATA del juego.
+## Contraste posterior con instrucciones originales
+
+18:38 UTC. En8211bcb4 se llama al registrador con índice2, buffer objeto+0xb8 y tamaño8192; la dirección del nombre PRI-DATA se prepara como argumento de pila. En8211bccc se llama con índice4, puntero y tamaño cero y el nombre INI-DATA también en pila. Esto corrobora los índices y tamaños sin depender solo del pseudocódigo de seis argumentos.
+
+El trabajador almacena512000 en el tamaño de la entrada en8213ca52, reserva el buffer y lo limpia. En8213ca76 carga de la tabla virtual el método en desplazamiento0x20 y lo llama en8213ca78. El destino concreto sigue pendiente: no es una función directa identificada únicamente por ese desplazamiento. La inicialización crea el objeto auxiliar mediante8211b5bc y lo guarda en el campo5 del contenedor; esa es la pista siguiente para delimitar la tabla y el serializador.
+
+Falta rastrear ese método, incluida longitud real y validación al leer. Antes de aumentar límites debe revisarse el presupuesto de buffers y el formato de registro propio. No se modifica todavía el límite ni se fabrica un INI-DATA del juego.
 
 No hubo ejecución, lectura de partidas personales ni transferencia. La interpretación de configuración/partida asociada a cada nombre sigue siendo parcial; solo se publica la relación técnica índice/nombre/capacidad.
