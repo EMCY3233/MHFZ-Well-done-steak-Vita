@@ -1,0 +1,30 @@
+{
+  "scope": "Native complete-snapshot selection under ARM; digest uses Python callback, no native SHA/I/O/client/VitaOS",
+  "passed": 23,
+  "cases": [
+    "both absent",
+    "committed empty",
+    "orphan remains invisible",
+    "complete newer generation",
+    "whole older generation after second member truncation",
+    "older after manifest truncation",
+    "identical tie first slot",
+    "conflicting equal generation rejected",
+    "no complete snapshot blocks",
+    "corrupt is not absent",
+    "wrong record sequence",
+    "wrong record slot",
+    "absent empty live tombstone distinct",
+    "bad record 0",
+    "bad record 8",
+    "bad record 12",
+    "bad record 16",
+    "bad record 20",
+    "bad record 24",
+    "bad record 28",
+    "bad record 32",
+    "bad record 36",
+    "digest callback failure"
+  ],
+  "elf_sha256": "b472c7a81a4cfd80e2d313b11f842b796f26cf9c5748eb42ee9aa588082fff30"
+}
