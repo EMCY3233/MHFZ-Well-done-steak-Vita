@@ -31,11 +31,25 @@
       "va": "0x8213c222",
       "bytes": 200,
       "sha256": "2a8752e6da4e3ab69fff244397c152c32b255c111aefa71289a28904b2c69b0f"
+    },
+    {
+      "name": "read-worker",
+      "va": "0x8213c4b2",
+      "bytes": 784,
+      "sha256": "c8b0f2f284d4f3c6bcd3bb7c6b088cf5977de68d1efbab9b8a555473504eb9db"
+    },
+    {
+      "name": "entry-selector",
+      "va": "0x8213c336",
+      "bytes": 32,
+      "sha256": "02316b5649804dcd4ec16aaafbcfc70337e930649d44ce7adfcbb9dfd8aa3283"
     }
   ],
   "relaunch_strings": {
     "0x827f35b8": "app0:eboot.bin",
-    "0x827f35c8": "argument"
+    "0x827f35c8": "argument",
+    "0x827f9ab8": "%s%s",
+    "0x827f9ac0": "savedata0:"
   },
   "vtable_candidate": [
     "0x8213c001",
