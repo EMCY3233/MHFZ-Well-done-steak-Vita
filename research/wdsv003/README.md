@@ -2,6 +2,20 @@
 
 Preparación iniciada el 27-10-2026. No se ha instalado ni ejecutado el cliente. El hito físico permanece BLOQUEADO hasta demostrar aislamiento en la integración real.
 
+## Estado consolidado a las 16:08 UTC
+
+Existe un backend nativo **propio y separado del cliente**: rutas privadas, diario con CRC/secuencia y marca de borrado. [La cadena nativa al máximo](storage/FULL-NATIVE-PIPELINE.md) pasa39 casos en emulación ARM con APIs/archivos sustituidos en RAM. Los conjuntos de34 casos del adaptador y24 de la cadena pequeña comparten cobertura; no sumarlos como pruebas independientes. No hay prueba VitaOS ni garantía de pérdida eléctrica. La alternativa stdio tiene un [bloqueo de enlace errno](storage/STDIO-LINKAGE.md); la alternativa nativa enlaza sin FILE/errno.
+
+Los lectores Python suman46 pruebas. CI ejecuta lectores y política Python; no ejecuta los ensayos ARM locales. El backend aún no controla los accesos del cliente ni sus estados asíncronos.
+
+El análisis más reciente sustituye alcances parciales del inventario inicial: [36 descriptores/476 importaciones](packaging/IMPORTS.md), [799 inicializadores definidos y límites transitivos](packaging/INITIALIZER-COVERAGE.md), y [475219 relocaciones coherentes en las bases originales](packaging/ZERO-DELTA.md). Las ocho celdas seleccionadas tienen relocación ABS32. No se aplicó un parche.
+
+El [flujo de entrada](packaging/ENTRY-CONTROL-FLOW.md) requiere controlar efectos antes de inicializadores y no asumir retorno ordinario del helper. [Añadir un segmento](packaging/SELF-TABLE-CAPACITY.md) exige redisponer tablas; no cabe ampliar las existentes in situ. El digest de control4 coincide con el ELF derivado, pero el tamaño declarado y la cola de21bytes mantienen bloqueada la transformación. [El padding del generador](packaging/GENERATOR-COMPARISON.md) es una política de representación, no un formato universal ni autorización de reparar el original.
+
+La [unión de capas](packaging/LAYER-UNION.md) y [fronteras de staging](packaging/STAGING-BOUNDARIES.md) son hipótesis de planificación. No hay staging aprobado ni VPK del cliente. Faltan identidad AppUtil/montajes, cobertura de lecturas/escrituras/borrado/relanzamiento, alojamiento/activación del adaptador y reconstrucción verificable del contenedor.
+
+Siguiente prioridad: política explícita de representación SELF y revisión de metadatos dependientes del ELF; después resolver alojamiento/entrada. No repetir las pruebas de contadores ni nuevos backends equivalentes por el mero tamaño. La primera ejecución física sigue requiriendo autorización específica posterior y demostración previa de aislamiento.
+
 ## Cambio de alcance
 
 00.03 aporta evidencia física de almacenamiento sintético. 00.04 no es requisito. Esta fase prepara controles para el cliente comercial copiado localmente, sin publicar sus bytes, pseudocódigo ni recursos.
@@ -53,4 +67,3 @@ Reversión actual: descartar exclusivamente la rama de investigación y las sali
 Riesgo abierto principal: las garantías del modelo no se transfieren automáticamente al cliente. La preparación de WDSV-003 es parcial mientras falten los puntos 3–5.
 
 Continuación 27-10-2026: [productores de solicitudes](STORAGE-REQUEST-PRODUCERS.md) distingue aceptación del trabajo asíncrono y confirmación persistente; identifica 8213c092 para estado 3 y 8213c222 para estado 6.
-
