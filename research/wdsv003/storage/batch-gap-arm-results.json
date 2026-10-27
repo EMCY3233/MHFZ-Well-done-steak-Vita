@@ -1,0 +1,17 @@
+{
+  "scope": "Demonstrate current per-journal behavior; no batch atomicity implementation.",
+  "additional_cases": 6,
+  "baseline_cases": 24,
+  "tests": [
+    "batch baseline first",
+    "batch baseline second",
+    "batch member first committed",
+    "batch member second partial failure",
+    "batch recovery retains first NEW",
+    "batch recovery retains second OLD"
+  ],
+  "observed": "First member remains new and second recovers old after second commit failure.",
+  "proves": "Independent journal commits do not provide a shared batch generation.",
+  "limits": "Own ARM code, sceIo mocked in RAM; no AppUtil semantics, commercial data or VitaOS execution.",
+  "elf_sha256": "4f2fca02a87b78c028a965538a32d5a58573db931d6bbbe5102e20ecd9bcecc0"
+}
