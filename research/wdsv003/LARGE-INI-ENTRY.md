@@ -12,7 +12,11 @@ Esto concreta el límite del backend: **INI-DATA puede requerir una capacidad de
 
 18:38 UTC. En8211bcb4 se llama al registrador con índice2, buffer objeto+0xb8 y tamaño8192; la dirección del nombre PRI-DATA se prepara como argumento de pila. En8211bccc se llama con índice4, puntero y tamaño cero y el nombre INI-DATA también en pila. Esto corrobora los índices y tamaños sin depender solo del pseudocódigo de seis argumentos.
 
-El trabajador almacena512000 en el tamaño de la entrada en8213ca52, reserva el buffer y lo limpia. En8213ca76 carga de la tabla virtual el método en desplazamiento0x20 y lo llama en8213ca78. El destino concreto sigue pendiente: no es una función directa identificada únicamente por ese desplazamiento. La inicialización crea el objeto auxiliar mediante8211b5bc y lo guarda en el campo5 del contenedor; esa es la pista siguiente para delimitar la tabla y el serializador.
+El trabajador almacena512000 en el tamaño de la entrada en8213ca52, reserva el buffer y lo limpia. En8213ca76 carga de la tabla virtual el método en desplazamiento0x20 y lo llama en8213ca78. El destino concreto sigue pendiente: no es una función directa identificada únicamente por ese desplazamiento.
+
+18:53 UTC. Se corrige la pista del objeto auxiliar del campo5: **no es el receptor demostrado de esta llamada**. El getter8211b918 devuelve el contenedor global839e16d4; en8213ca6a el trabajador carga el puntero del campo0 de ese contenedor, comprueba que no sea nulo y solo después obtiene su tabla virtual. El constructor8211b5bc crea otro objeto almacenado en el campo5; su tabla82b285b0 no permite resolver el método del campo0. No usarla para atribuir el serializador.
+
+La inicialización deja el campo0 a cero. Falta identificar dónde se asigna posteriormente y qué objeto recibe la llamada. Si permanece nulo, el tramo salta la llamada virtual tras haber reservado y limpiado el buffer; esto tampoco demuestra que una partida utilizable sea serializada. La corrección deriva del seguimiento de cargas originales, no de ejecutar el juego.
 
 Falta rastrear ese método, incluida longitud real y validación al leer. Antes de aumentar límites debe revisarse el presupuesto de buffers y el formato de registro propio. No se modifica todavía el límite ni se fabrica un INI-DATA del juego.
 
