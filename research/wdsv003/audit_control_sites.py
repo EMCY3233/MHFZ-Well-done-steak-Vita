@@ -14,7 +14,8 @@ def read(va,size):
   if typ==1 and addr<=va and va+size<=addr+filesz:
    return data[off+va-addr:off+va-addr+size]
  raise ValueError(hex(va))
-windows=[('delete-control',0x8213c3ec,0x60),('save-api-call',0x8213ca60,0x40),('relaunch',0x821290b6,0x50)]
+windows=[('delete-control',0x8213c3ec,0x60),('save-api-call',0x8213ca60,0x40),('relaunch',0x821290b6,0x50),
+         ('save-producer',0x8213c092,0xc8),('delete-producer',0x8213c222,0xc8)]
 rows=[]
 obj=ROOT/'analysis-tools/vitasdk-win-20260825/bin/arm-vita-eabi-objdump.exe'
 for name,va,size in windows:
