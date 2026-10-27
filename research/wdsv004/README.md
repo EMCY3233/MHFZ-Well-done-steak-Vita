@@ -40,3 +40,13 @@ Rama específica `research/wdsv004-snapshot-isolation`, basada en WDSV-003 commi
 Reversión actual: descartar exclusivamente esta rama y archivos propios WDSV-004; no hay cambios de consola que revertir. No borrar manifiestos/diarios existentes ni migrarlos automáticamente. Cualquier futura retirada física quedará limitada al TitleID y directorios experimentales comprobados y autorizados; nunca limpieza por prefijos del original.
 
 Los temporizadores de seguimiento no constituyen permisos de instalación, ejecución ni fusión. No se reactiva el antiguo temporizador de cinco minutos.
+
+## Actualización de almacenamiento — 27-10, 22:55 UTC
+
+Además de snapshot.py, existen lectores nativos manifest_reader, record_ref y snapshot_reader: 208, 61 y 23 casos ARM respectivamente, con digest delegado a Python en los dos últimos. No existe aún SHA nativo ni escritor nativo de lotes.
+
+batch_plan.py y batch_commit.py son referencias Python: conservan referencias vigentes, preparan slots alternativos y verifican el lote completo antes/después de publicar el manifiesto mediante callbacks. Los datos observados deben ser bytes inmutables; contenedores de observación se copian y cualquier resultado incierto bloquea la instancia. La exclusión entre escritores sigue siendo precondición externa, no un bloqueo implementado. Readback no demuestra persistencia ante corte de energía.
+
+La suite WDSV004 contiene ahora 25 métodos de prueba, con seis fallos de publicación y seis variantes de datos modificables entre sus subcasos. validation.json se regenera con las suites existentes y los hashes de las copias de entrada. Los detalles de cada cobertura están en NATIVE-MANIFEST.md, NATIVE-RECORD-REF.md, NATIVE-SNAPSHOT.md, BATCH-PREPARATION.md y BATCH-PUBLICATION.md.
+
+La siguiente tarea nativa sigue siendo verificar el digest y trasladar el protocolo de lote al backend. El límite de escritura 163840 bytes no cubre INI-DATA de 512000 bytes. No se ha demostrado aislamiento del cliente, montajes, identidad AppUtil o relanzamiento; no hay ejecución física autorizada ni hito de aceptación completado.
