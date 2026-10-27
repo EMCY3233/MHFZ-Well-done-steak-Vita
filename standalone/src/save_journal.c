@@ -3,8 +3,8 @@
 static void copy(uint8_t *d,const uint8_t *s,uint32_t n) {
     uint32_t i;for(i=0;i<n;++i)d[i]=s[i];
 }
-int mhfz_journal_load(mhfz_save_journal *j,uint8_t *data,uint32_t cap,uint32_t *size) {
-    uint32_t slot,seen=0,found=0;mhfz_save_record r;
+static int load(mhfz_save_journal *j,uint8_t *data,uint32_t cap,uint32_t *size,int strict) {
+    uint32_t slot,seen=0,found=0,i;mhfz_save_record r;
     if(!size)return -2;
     *size=0;
     if(!j)return -2;
@@ -17,6 +17,10 @@ int mhfz_journal_load(mhfz_save_journal *j,uint8_t *data,uint32_t cap,uint32_t *
         seen=1;
         if(mhfz_read_save_record(j->scratch,(uint32_t)n,&r)<0)continue;
         if(r.length>cap){*size=0;return -2;}
+        if(strict && found && r.sequence==j->sequence) {
+            if(r.length!=*size){*size=0;return -1;}
+            for(i=0;i<r.length;++i)if(data[i]!=r.payload[i]){*size=0;return -1;}
+        }
         if(!found || r.sequence>j->sequence) {
             copy(data,r.payload,r.length);*size=r.length;
             j->sequence=r.sequence;j->slot=slot;found=1;
@@ -24,6 +28,12 @@ int mhfz_journal_load(mhfz_save_journal *j,uint8_t *data,uint32_t cap,uint32_t *
     }
     if(!found && seen)return -1;
     j->ready=1;return found ? 1 : 0;
+}
+int mhfz_journal_load(mhfz_save_journal *j,uint8_t *data,uint32_t cap,uint32_t *size) {
+    return load(j,data,cap,size,0);
+}
+int mhfz_journal_load_strict(mhfz_save_journal *j,uint8_t *data,uint32_t cap,uint32_t *size) {
+    return load(j,data,cap,size,1);
 }
 int mhfz_journal_commit(void *context,const uint8_t *data,uint32_t size) {
     mhfz_save_journal *j=(mhfz_save_journal *)context;mhfz_save_record r;
