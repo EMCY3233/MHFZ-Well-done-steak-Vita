@@ -1,0 +1,46 @@
+{
+  "source_sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+  "scope": "Pinned generator padding comparison only; does not relax SELF transformation gate",
+  "segments": [
+    {
+      "index": 0,
+      "decoded_bytes": 28483284,
+      "stream_bytes": 13234522,
+      "trailing_bytes": 21,
+      "expected_padding_bytes": 2,
+      "matches_pinned_padding_policy": false
+    },
+    {
+      "index": 1,
+      "decoded_bytes": 1614524,
+      "stream_bytes": 236083,
+      "trailing_bytes": 0,
+      "expected_padding_bytes": 1,
+      "matches_pinned_padding_policy": false
+    },
+    {
+      "index": 2,
+      "decoded_bytes": 5107260,
+      "stream_bytes": 1516532,
+      "trailing_bytes": 0,
+      "expected_padding_bytes": 0,
+      "matches_pinned_padding_policy": true
+    },
+    {
+      "index": 3,
+      "decoded_bytes": 595368,
+      "stream_bytes": 184660,
+      "trailing_bytes": 0,
+      "expected_padding_bytes": 0,
+      "matches_pinned_padding_policy": true
+    },
+    {
+      "index": 4,
+      "decoded_bytes": 13468,
+      "stream_bytes": 430,
+      "trailing_bytes": 0,
+      "expected_padding_bytes": 2,
+      "matches_pinned_padding_policy": false
+    }
+  ]
+}
