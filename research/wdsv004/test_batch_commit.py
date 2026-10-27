@@ -38,6 +38,33 @@ class Publication(unittest.TestCase):
             self.assertEqual(events,['record','manifest'])
 
     def test_success(self): self.run_case()
+
+    def test_mutable_observations_rejected_before_publication(self):
+        for phase in (1,2,3):
+            for mutable_member in (False,True):
+                with self.subTest(phase=phase,record=mutable_member):
+                    original=record(b'A')
+                    m=[manifest(members={0:(1,0,1,original)}),None]
+                    r={(0,0):original}; calls=[]; reads=0
+                    def read():
+                        nonlocal reads
+                        reads+=1
+                        a,b=list(m),dict(r)
+                        if reads==phase:
+                            if mutable_member: b[0,0]=bytearray(original)
+                            else: a[0]=bytearray(a[0])
+                        return a,b
+                    def wr(logical,slot,raw):
+                        calls.append('record');r[logical,slot]=raw;return True
+                    def wm(slot,raw):
+                        calls.append('manifest');m[slot]=raw;return True
+                    c=Coordinator(read,wr,wm)
+                    with self.assertRaises(ValueError): c.commit({0:record(b'next',2)})
+                    self.assertTrue(c.blocked)
+                    if phase==1: self.assertEqual(calls,[])
+                    if phase==2: self.assertEqual(calls,['record'])
+                    if phase==3: self.assertEqual(calls,['record','manifest'])
+
     def test_faults_block_and_order_publication(self):
         for fault in ('record-ack','record-readback','baseline','unchanged','manifest-ack','manifest-readback'):
             with self.subTest(fault=fault): self.run_case(fault)
