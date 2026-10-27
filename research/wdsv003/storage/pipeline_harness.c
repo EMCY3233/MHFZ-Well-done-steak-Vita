@@ -1,5 +1,11 @@
 /* Test-only wiring. Not a game hook, installed app or production context. */
+#ifdef WDSV_NATIVE_IO
+#include "private_io.h"
+#define wdsv_read_slot wdsv_io_read_slot
+#define wdsv_write_slot wdsv_io_write_slot
+#else
 #include "private_files.h"
+#endif
 #include "value_journal.h"
 #ifdef WDSV_AUDIT_LOG
 #include "audited_store.h"
