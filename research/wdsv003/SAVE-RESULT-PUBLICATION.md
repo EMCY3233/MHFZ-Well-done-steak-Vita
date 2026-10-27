@@ -1,0 +1,13 @@
+# Guardado: publicación y límites de la adaptación
+
+27-10-2026. Ghidra dirigido y contraste de instrucciones originales de8213c7c0, sin ejecutar la API. El trabajador exige estado+90=3; si no coincide, publica1 cuando+9c era cero, conserva otro resultado previo y después reinicia+90. Este código de estado incorrecto difiere del4 observado en el trabajador de borrado.
+
+El recorrido consulta SlotGetParam antes de preparar la operación y clasifica su retorno. Por tanto, no toda invocación del trabajador llega a DataSave. La llamada efectiva está en8213ca8c; el quinto argumento se prepara en pila en8213ca88. Tras la llamada copia un dato de salida al campo+a8 del objeto global y consulta si ya existe un resultado+9c antes de traducir el retorno. No confundir ese dato auxiliar con el resultado final ni con el valor ignorado por el helper de diálogo.
+
+El resultado final se almacena en+9c en8213c876. A continuación hay limpieza de una entrada temporal y finalmente reset exclusivo de+90 en8213c8a8. La ubicación del epílogo es anterior en direcciones a la llamada por los saltos del flujo; comparar solo orden de direcciones produciría una conclusión incorrecta. La publicación del resultado precede al desbloqueo en ese recorrido.
+
+En el cuerpo analizado no se identifica una relectura posterior de los archivos guardados antes de publicar resultado; la rama local se basa en retornos y controles de parámetros. Esto no describe las garantías internas de AppUtil ni demuestra persistencia física. El backend del laboratorio debe conservar su confirmación propia por relectura y traducirla al contrato asíncrono, sin convertir aceptación de solicitud en éxito final.
+
+**Límite material de cobertura:** el trabajador contiene una preparación opcional de entrada con tamaño0x7d000 (512000 bytes), mientras el backend propio admite payload hasta0x28000 (163840). Aunque la cadena de laboratorio pasa a su máximo, no cubre esa entrada mayor. No aumentar silenciosamente límites ni anunciar soporte completo: falta identificar nombre, selección y formato de esa entrada y decidir su adaptación. La prueba con150820 bytes no resuelve este caso.
+
+Próximo análisis: relación entre las entradas registradas, índices y opción que activa la entrada mayor; después revisar presupuesto de memoria y tamaño de registro con un contrato explícito. No repetir otra prueba al mismo límite del laboratorio para intentar cerrar esa diferencia.
