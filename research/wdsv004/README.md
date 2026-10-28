@@ -56,3 +56,11 @@ La siguiente tarea nativa sigue siendo verificar el digest y trasladar el protoc
 SHA nativo implementado en sha256.c/h y comprobado: 19 casos ARM con hashlib solo como oráculo, sin sustituir el digest. El selector completo enlazado con ese SHA pasa otros 23 casos ARM, incluidos fallo de digest mediante stub nativo e interrupción de candidatos. NATIVE-SHA256.md conserva fuente normativa, alcance, hashes y límites. Esta actualización resuelve el digest pendiente indicado en apartados anteriores, pero no constituye certificación FIPS.
 
 Pendientes: trasladar el protocolo de publicación de lotes a código nativo, exclusión/recuperación de escritor, durabilidad del backend, capacidad INI-DATA y aislamiento real del cliente. Los resultados ARM no sustituyen pruebas físicas ni autorizan ejecución.
+
+## Actualización de integración de almacenamiento — 28-10, 00:10 UTC
+
+La preparación de lote y su coordinador ya tienen implementaciones nativas (13 y 10 casos ARM). private_store.c/h añade ocho rutas fijas nuevas wdsv004 y un pool persistente de 983636 bytes; sus 31 casos sustituyen solo llamadas OS. El recorrido conjunto de coordinador, adaptador, plan, lectores y SHA supera 9 escenarios ARM de éxito/interrupción/confirmación incierta, descritos en STORE-PIPELINE.md. No se sustituyen callbacks del coordinador ni SHA en ese recorrido.
+
+Estos resultados actualizan los pendientes nativos anteriores, pero no prueban directorio/montaje privado, exclusión real, durabilidad o aislamiento del cliente. parent_verified es una precondición externa sin prueba física, no un mecanismo que demuestre aislamiento. La ausencia de baseline no inicializa nada. Un manifiesto completo puede ser recuperable aunque su confirmación haya fallado; no se promete rollback.
+
+Siguiente obstáculo independiente: presupuesto de memoria, capacidad y vida útil de buffers para INI-DATA de 512000 bytes frente al límite de payload 163840 del adaptador. Después siguen alojamiento/imports/relocaciones, identidad AppUtil, montajes y relanzamiento. El primer hito de aceptación continúa pendiente; no hay instalación ni ejecución física.
