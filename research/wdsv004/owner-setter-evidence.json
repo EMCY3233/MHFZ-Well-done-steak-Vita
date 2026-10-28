@@ -1,0 +1,27 @@
+{
+  "elf_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "owner_global": "839fd870",
+  "caller_functions": 25,
+  "decompiled": 25,
+  "ssa_roots": 1610,
+  "use_rows": 703,
+  "phi_boundaries": 646,
+  "exact_zero_stores": 0,
+  "setter_call": {
+    "caller": "823cc79c",
+    "owner_load": "823cc86e",
+    "use": "823cc86e",
+    "kind": "CALL",
+    "callee": "8211c0cc",
+    "alias_input_positions": [
+      1
+    ],
+    "zero_offset_store": false
+  },
+  "setter": "8211c0cc",
+  "field_store": "8211c0de",
+  "constructor": "821208e8",
+  "allocation_bytes": 116,
+  "scope": "Static metadata only; complete alias/PHI and runtime receiver identity unproven",
+  "private_evidence_sha256": "8a1941565f0958e4ae96f021cfb6e25c7dfa373f818eba4e7d686df07fabfa59"
+}
