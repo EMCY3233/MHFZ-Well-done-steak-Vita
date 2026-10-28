@@ -64,3 +64,9 @@ La preparación de lote y su coordinador ya tienen implementaciones nativas (13 
 Estos resultados actualizan los pendientes nativos anteriores, pero no prueban directorio/montaje privado, exclusión real, durabilidad o aislamiento del cliente. parent_verified es una precondición externa sin prueba física, no un mecanismo que demuestre aislamiento. La ausencia de baseline no inicializa nada. Un manifiesto completo puede ser recuperable aunque su confirmación haya fallado; no se promete rollback.
 
 Siguiente obstáculo independiente: presupuesto de memoria, capacidad y vida útil de buffers para INI-DATA de 512000 bytes frente al límite de payload 163840 del adaptador. Después siguen alojamiento/imports/relocaciones, identidad AppUtil, montajes y relanzamiento. El primer hito de aceptación continúa pendiente; no hay instalación ni ejecución física.
+
+## INI-DATA: propiedad y tamaños — 28-10, 02:11 UTC
+
+El seguimiento estático ha localizado setter, constructor, tabla virtual y serializador candidato; los informes INI-RECEIVER-SETTER.md, INI-VIRTUAL-SERIALIZER.md e INI-COPY-BOUNDARIES.md conservan sus condiciones. El parser candidato lee una entrada propia y la libera; INI-PARSER-OWNERSHIP.md impide conectar directamente una vista prestada del pool.
+
+INI-LOAD-HOLDER-CONTRACT.md verifica en instrucciones originales que el cargador mantiene separados puntero fuente, capacidad de asignación y longitud copiada, crea una segunda asignación para el parser y limpia después la fuente. Sigue pendiente el productor de esos campos y sus invariantes, terminación/formato y bridge con asignador compatible. No se ha implementado ese bridge ni ampliado el límite 163840 a 512000. No hay round trip del cliente ni prueba física; el primer hito de aceptación permanece pendiente.
