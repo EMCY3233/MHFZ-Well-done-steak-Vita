@@ -4,7 +4,8 @@ HERE=pathlib.Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 sys.path.insert(0,str(ROOT/'analysis-tools/test-python'))
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_THUMB
 from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_SP,UC_ARM_REG_LR,UC_ARM_REG_PC
-sdk=ROOT/'analysis-tools/vitasdk-win-20260825/bin';target=HERE/'manifest-reader-test.elf'
+from arm_tools import sdk_bin
+sdk=sdk_bin();target=HERE/'manifest-reader-test.elf'
 subprocess.run([str(sdk/'arm-vita-eabi-gcc.exe'),'-mthumb','-mcpu=cortex-a9','-mfloat-abi=soft','-Os','-Wall','-Wextra','-Werror','-ffreestanding','-fno-builtin','-nostdlib','-Wl,-Ttext=0x10000,--entry=wdsv004_read_manifest,--build-id=none',str(HERE/'manifest_reader.c'),'-o',str(target)],check=True,creationflags=subprocess.CREATE_NO_WINDOW)
 symbols={}
 for line in subprocess.check_output([str(sdk/'arm-vita-eabi-nm.exe'),'--defined-only',str(target)],text=True).splitlines():

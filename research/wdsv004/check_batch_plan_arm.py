@@ -7,7 +7,8 @@ from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_R
 sys.path.insert(0,str(HERE))
 from test_snapshot import record,manifest
 from batch_plan import prepare
-sdk=ROOT/'analysis-tools/vitasdk-win-20260825/bin';target=HERE/'batch-plan-test.elf'
+from arm_tools import sdk_bin
+sdk=sdk_bin();target=HERE/'batch-plan-test.elf'
 subprocess.run([str(sdk/'arm-vita-eabi-gcc.exe'),'-mthumb','-mcpu=cortex-a9','-mfloat-abi=soft','-Os','-Wall','-Wextra','-Werror','-ffreestanding','-fno-builtin','-nostdlib','-Wl,-Ttext=0x10000,--entry=wdsv004_prepare,--build-id=none',*[str(HERE/(name+'.c')) for name in ['batch_plan','snapshot_reader','manifest_reader','record_ref','sha256']],'-o',str(target)],check=True,creationflags=subprocess.CREATE_NO_WINDOW)
 assert not subprocess.check_output([str(sdk/'arm-vita-eabi-nm.exe'),'-u',str(target)],text=True).strip()
 symbols={}
