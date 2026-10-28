@@ -1,0 +1,141 @@
+{
+  "scope": "Original freestanding SHA256 executed under ARM; hashlib comparison only, no digest hook/OS/client/Vita",
+  "passed": 19,
+  "elf_sha256": "56f9fa6ae70dce7e60ae41cf5c340502a0e2d77eac3c30fa73ba1c15809a5b35",
+  "undefined_symbols": [],
+  "cases": [
+    {
+      "size": 0,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "size": 0,
+      "null_input": true,
+      "null_output": false,
+      "result": 0,
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "size": 3,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    },
+    {
+      "size": 1,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "084fed08b978af4d7d196a7446a86b58009e636b611db16211b65a9aadff29c5"
+    },
+    {
+      "size": 55,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "c40dbcd18dfdb34a5c52a791f09286986b5e9d61f867278c03adda227684e897"
+    },
+    {
+      "size": 56,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "ca6c4804e2170c368f94d2da606adf4552eb0b1d35bc2ad1dc12887627a028eb"
+    },
+    {
+      "size": 63,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "7f963102afccacb03458e0e3ee8f51a234359aed99cb7ebfd33d5e47a095fcba"
+    },
+    {
+      "size": 64,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "30a1b375b49e0f1d5e00b6868bbfd471cbe5387806456cc11fd153c689bfe747"
+    },
+    {
+      "size": 65,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "ce4c5c9097270aaca5630ec6ca4b48c145a1bb24462589a0ec3f69cd5c9b2a5c"
+    },
+    {
+      "size": 119,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "c9b7b15a882bf470dc6a27daf5486f9222f0ec5193069462d1ae5d729bbcc3eb"
+    },
+    {
+      "size": 120,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "53416ddca73fa04063bbedf24baf10637cde9f47c447586231115c0cc944645d"
+    },
+    {
+      "size": 127,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "fc7d260501b641289fe7df7d943df65d93c782f2f3a1e2a4e69c6f763d88f8c5"
+    },
+    {
+      "size": 128,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "5a878aab98a988c5479b48c00d8e2bef988c946dc648583ffe7ac598d76bacd5"
+    },
+    {
+      "size": 129,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "a1253e220a0a60177ba22d6f1ae079f6b8f0b8fa598b0adc1390b0d7c81756fa"
+    },
+    {
+      "size": 163876,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "d4bed9b14e22a23bbdf9056c6cd427ec7df2d060b9d6004266623eca8bf17caa"
+    },
+    {
+      "size": 512036,
+      "null_input": false,
+      "null_output": false,
+      "result": 0,
+      "digest": "e4f86dcd4a76d17da399b81d5780e0ca187eb993d90b82ca49fd00279212eac5"
+    },
+    {
+      "size": 1,
+      "null_input": true,
+      "null_output": false,
+      "result": -1,
+      "digest": null
+    },
+    {
+      "size": 0,
+      "null_input": false,
+      "null_output": true,
+      "result": -1,
+      "digest": null
+    },
+    {
+      "size": 512037,
+      "null_input": false,
+      "null_output": false,
+      "result": -1,
+      "digest": null
+    }
+  ]
+}

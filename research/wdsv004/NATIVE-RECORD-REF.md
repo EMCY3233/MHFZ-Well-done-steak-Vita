@@ -1,0 +1,9 @@
+# Resolución nativa de un registro referenciado
+
+record_ref.c/h verifican tamaño, estado, slot, identificador lógico, secuencia, cabecera, CRC del encabezado/cuerpo, envoltura y digest del registro privado. El digest se obtiene mediante callback con contrato explícito SHA256; si falla o no coincide, la salida queda intacta. La vista devuelta toma prestado el búfer: la integración debe mantenerlo inmutable durante verificación y uso.
+
+check_record_ref_arm.py compila y ejecuta código propio ARM/Thumb en Unicorn. Pasan61 casos: valores vacíos, tombstone y payload, truncamientos, referencias inválidas, corrupción y envoltura incorrecta aunque se recalculen los CRC, digest equivocado y fallo del callback. La SHA256 del ensayo la calcula Python mediante una función sustituida: **no existe aún implementación SHA nativa enlazada ni una selección de snapshot completo en C**.
+
+El primer ensayo falló por un argumento adicional introducido accidentalmente en la construcción de Unicorn al adaptar el arnés; se corrigió antes de obtener resultados. No se cambió el código del cliente ni se interpretó ese fallo como comportamiento Vita. El hash del ELF propio y los casos están en record-ref-arm-results.json; el ELF no se publica.
+
+El tamaño estructural máximo sigue512036bytes de registro; no eleva límites de escritura del backend ni resuelve memoria total de INI-DATA/lote. No hay E/S, búsqueda de archivos, publicación de generación ni escritor. Siguiente paso: selector nativo completo con recuperación de manifiestos y resolución de todos los miembros; después integrar una implementación de digest verificada y preparación del lote. Cliente, contenedor, montajes e identidad permanecen pendientes.

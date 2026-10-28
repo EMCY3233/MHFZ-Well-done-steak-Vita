@@ -1,0 +1,132 @@
+{
+  "scope": "Native eight-slot Vita I/O adapter under ARM; OS calls mocked, no physical filesystem/client",
+  "passed": 31,
+  "cases": [
+    {
+      "label": "unverified parent blocks",
+      "opens": 0
+    },
+    {
+      "label": "all missing distinct from error",
+      "opens": 8
+    },
+    {
+      "label": "empty existing manifest is present",
+      "opens": 8
+    },
+    {
+      "label": "eight fixed slots",
+      "opens": 8
+    },
+    {
+      "label": "record namespace write",
+      "opens": 1
+    },
+    {
+      "label": "record namespace write",
+      "opens": 1
+    },
+    {
+      "label": "record namespace write",
+      "opens": 1
+    },
+    {
+      "label": "record namespace write",
+      "opens": 1
+    },
+    {
+      "label": "record namespace write",
+      "opens": 1
+    },
+    {
+      "label": "record namespace write",
+      "opens": 1
+    },
+    {
+      "label": "manifest namespace write",
+      "opens": 1
+    },
+    {
+      "label": "manifest namespace write",
+      "opens": 1
+    },
+    {
+      "label": "manifest overlong",
+      "opens": 1
+    },
+    {
+      "label": "record overlong",
+      "opens": 3
+    },
+    {
+      "label": "record capacity exact EOF",
+      "opens": 8
+    },
+    {
+      "label": "record size rejected",
+      "opens": 0
+    },
+    {
+      "label": "record size rejected",
+      "opens": 0
+    },
+    {
+      "label": "record size rejected",
+      "opens": 0
+    },
+    {
+      "label": "manifest exact size required",
+      "opens": 0
+    },
+    {
+      "label": "manifest exact size required",
+      "opens": 0
+    },
+    {
+      "label": "pool alias rejected",
+      "opens": 0
+    },
+    {
+      "label": "invalid identity rejected",
+      "opens": 0
+    },
+    {
+      "label": "invalid identity rejected",
+      "opens": 0
+    },
+    {
+      "label": "open_error",
+      "opens": 1
+    },
+    {
+      "label": "read_error",
+      "opens": 3
+    },
+    {
+      "label": "oversize",
+      "opens": 1
+    },
+    {
+      "label": "close_error",
+      "opens": 1
+    },
+    {
+      "label": "write_error",
+      "opens": 1
+    },
+    {
+      "label": "zero_write",
+      "opens": 1
+    },
+    {
+      "label": "oversize",
+      "opens": 1
+    },
+    {
+      "label": "close_error",
+      "opens": 1
+    }
+  ],
+  "pool_bytes": 983636,
+  "elf_sha256": "e1b22ba2c6b7a7a5addb34599dc288359f1a68d9d5767b6b3cbec5292573ab3f"
+}

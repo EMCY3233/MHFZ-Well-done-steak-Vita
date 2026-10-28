@@ -1,0 +1,53 @@
+{
+  "elf_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+  "vtable": "0x82b287a8",
+  "file_offset": 28477576,
+  "entries": [
+    {
+      "slot": "0x0",
+      "cell": "0x82b287a8",
+      "target": "0x82122427"
+    },
+    {
+      "slot": "0x4",
+      "cell": "0x82b287ac",
+      "target": "0x82122967"
+    },
+    {
+      "slot": "0x8",
+      "cell": "0x82b287b0",
+      "target": "0x82122977"
+    },
+    {
+      "slot": "0xc",
+      "cell": "0x82b287b4",
+      "target": "0x821229bb"
+    },
+    {
+      "slot": "0x10",
+      "cell": "0x82b287b8",
+      "target": "0x82122b31"
+    },
+    {
+      "slot": "0x14",
+      "cell": "0x82b287bc",
+      "target": "0x82122b35"
+    },
+    {
+      "slot": "0x18",
+      "cell": "0x82b287c0",
+      "target": "0x8212301f"
+    },
+    {
+      "slot": "0x1c",
+      "cell": "0x82b287c4",
+      "target": "0x82123557"
+    },
+    {
+      "slot": "0x20",
+      "cell": "0x82b287c8",
+      "target": "0x82123583"
+    }
+  ],
+  "scope": "Original-base ELF words; no relocated execution proof"
+}

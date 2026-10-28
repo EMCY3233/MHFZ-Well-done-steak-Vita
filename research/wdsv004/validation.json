@@ -1,0 +1,44 @@
+{
+  "scope": "Local Python synthetic tests and read-only copied input hashes; no client, VitaOS or physical execution.",
+  "inputs": [
+    {
+      "path": "evidence/vita/derived/rePatch-eboot.elf",
+      "present": true,
+      "sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+      "expected_sha256": "2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d",
+      "matches": true
+    },
+    {
+      "path": "evidence/vita/current-ftp/rePatch-eboot.bin",
+      "present": true,
+      "sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+      "expected_sha256": "a5dac30c97eb87c4ab0e99b272a93752501114e6b5072159c6222857e4ac3fa3",
+      "matches": true
+    }
+  ],
+  "suites": [
+    {
+      "directory": "research/wdsv003/storage",
+      "exit_code": 0,
+      "output": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.018s\n\nOK"
+    },
+    {
+      "directory": "research/wdsv003/packaging",
+      "exit_code": 0,
+      "output": "..............................................\n----------------------------------------------------------------------\nRan 46 tests in 0.005s\n\nOK"
+    },
+    {
+      "directory": "research/wdsv004",
+      "exit_code": 0,
+      "output": ".........................\n----------------------------------------------------------------------\nRan 25 tests in 0.004s\n\nOK"
+    }
+  ],
+  "success": true,
+  "physical_execution_allowed": false,
+  "limits": [
+    "Native manifest/record/snapshot readers tested under ARM with Python digest callback; no native SHA or native batch writer.",
+    "No client hook, isolated resource mount or AppUtil identity verified.",
+    "SELF transformation gate remains blocked.",
+    "No identity/Sign/Entrance/Channel integration produced in this delivery."
+  ]
+}

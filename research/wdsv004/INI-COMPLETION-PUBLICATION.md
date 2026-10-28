@@ -1,0 +1,15 @@
+# Read-thread result publication: original instructions
+
+Static source identity: ELF SHA256 2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d. Original instructions of aligned thread entry 0x8212d6f2 were inspected in the existing laboratory Ghidra database; no target code was executed.
+
+The read branch calls import sceFiosFHReadSync at 0x8212d7b0 and retains both return registers at 0x8212d7b4/0x8212d7b6. A later instruction saves that pair to its local result slot at 0x8212d7ba. At publication, 0x8212d808 reloads the result; 0x8212d80c sets the completion flag candidate to 1 and 0x8212d80e compares the low result word as signed against zero. The negative branch substitutes flag -1 and result zero. The result word is stored at context offset zero at 0x8212d818, followed by the flag at offset four at 0x8212d81c.
+
+The verified local order is result-before-flag. It is not a cross-thread memory-order guarantee: no barrier is inferred from source order, and surrounding event/mutex/runtime behavior still needs integration review. High return bits are not preserved in the published context word in this sequence. No complete FIOS return-unit/range contract is claimed because the inspected public headers lack the prototypes. Retry behavior also must not be inferred solely from a guessed high-level ABI.
+
+The holder polling helper previously identified at 0x8212ee00 tests context flag equality to 1 and, if accepted, copies context word zero to its output pointer. The holder worker's inspected read path supplies holder +0x134 as that output, then publishes holder state 1 after its event wait. The expected file size at holder +0x12c was assigned before dispatch. These are three separate observations: expected size, operation result word and completion state. Completion does not, in this local sequence, encode equality of expected size and available bytes.
+
+A new private-storage bridge should define its own available-byte contract from the already validated snapshot payload, require consistency with the intended copy length/capacity, and maintain explicit allocation ownership. It must not simply set holder state 1 after any nonnegative operation result or reuse borrowed pool memory. Exact original statuses and any omitted higher-level checks need mapping before client integration; no status substitution is implemented here.
+
+Current limits and safety boundary remain unchanged: no bridge, no 512000-byte native write support, no client hook, no physical execution and no proven mount/isolation or power-loss durability. The next reviewable step is a small ownership/copy handoff interface with explicit validated lengths and matching allocation callbacks, tested only with original synthetic buffers. Its eventual connection to the game remains separate and blocked pending ABI/isolation evidence.
+
+Private evidence: ini-read-thread-instructions-private.txt and the earlier holder/polling function reports. Only addresses and observed effects are published. No commercial instructions, pseudocode, resources, saves, credentials or binaries are included.

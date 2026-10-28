@@ -1,0 +1,140 @@
+{
+  "callers": 38,
+  "decompiled": 38,
+  "getter_roots": 48,
+  "scope": "SSA COPY/CAST and exact zero-add only, PHI boundaries not propagated; no global aliases or interprocedural proof",
+  "uses": [
+    {
+      "caller": "82117caa",
+      "getter_call": "82117cca",
+      "use": "82117d26",
+      "kind": "CALL",
+      "callee": "8211cbbe",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "82118cc0",
+      "getter_call": "82118dbe",
+      "use": "82118dcc",
+      "kind": "CALL",
+      "callee": "8211c08e",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "82118cc0",
+      "getter_call": "82118dde",
+      "use": "82118de4",
+      "kind": "CALL",
+      "callee": "8211c08e",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "82118cc0",
+      "getter_call": "82118e0c",
+      "use": "82118e28",
+      "kind": "CALL",
+      "callee": "8211c08e",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "820e5286",
+      "getter_call": "820e52e0",
+      "use": "820e52e8",
+      "kind": "CALL",
+      "callee": "8211ca78",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "820e5286",
+      "getter_call": "820e5640",
+      "use": "820e5648",
+      "kind": "CALL",
+      "callee": "8211ca82",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "820e526a",
+      "getter_call": "820e5276",
+      "use": "820e527c",
+      "kind": "CALL",
+      "callee": "8211ca82",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "8212ad4c",
+      "getter_call": "8212ad6a",
+      "use": "8212ad72",
+      "kind": "CALL",
+      "callee": "8211d6b6",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "8212ad4c",
+      "getter_call": "8212add8",
+      "use": "8212adf2",
+      "kind": "CALL",
+      "callee": "8212abb4",
+      "alias_input_positions": [
+        2
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "8212bb7e",
+      "getter_call": "8212bbce",
+      "use": "8212bbd6",
+      "kind": "CALL",
+      "callee": "8211c08e",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "8213617e",
+      "getter_call": "8213627a",
+      "use": "82136284",
+      "kind": "CALL",
+      "callee": "8211d256",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    },
+    {
+      "caller": "823ce164",
+      "getter_call": "823ce740",
+      "use": "823ce748",
+      "kind": "CALL",
+      "callee": "8211c08e",
+      "alias_input_positions": [
+        1
+      ],
+      "zero_offset_store": false
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "scope": "Native coordinator/planner/recovery/SHA under ARM; only store callbacks mocked; no OS/client/Vita",
+  "passed": 10,
+  "cases": [
+    {
+      "fault": null,
+      "result": 0,
+      "events": [
+        "record",
+        "manifest"
+      ]
+    },
+    {
+      "fault": "read1",
+      "result": -1,
+      "events": []
+    },
+    {
+      "fault": "read2",
+      "result": -1,
+      "events": [
+        "record"
+      ]
+    },
+    {
+      "fault": "read3",
+      "result": -1,
+      "events": [
+        "record",
+        "manifest"
+      ]
+    },
+    {
+      "fault": "record-ack",
+      "result": -1,
+      "events": [
+        "record"
+      ]
+    },
+    {
+      "fault": "record-readback",
+      "result": -1,
+      "events": [
+        "record"
+      ]
+    },
+    {
+      "fault": "baseline",
+      "result": -1,
+      "events": [
+        "record"
+      ]
+    },
+    {
+      "fault": "unchanged",
+      "result": -1,
+      "events": [
+        "record"
+      ]
+    },
+    {
+      "fault": "manifest-ack",
+      "result": -1,
+      "events": [
+        "record",
+        "manifest"
+      ]
+    },
+    {
+      "fault": "manifest-readback",
+      "result": -1,
+      "events": [
+        "record",
+        "manifest"
+      ]
+    }
+  ],
+  "elf_sha256": "9fae38e4e0c44fb7addf8d650e726cd6a96afa800efe9bb1af865ea85eb8b2b7",
+  "undefined_symbols": []
+}

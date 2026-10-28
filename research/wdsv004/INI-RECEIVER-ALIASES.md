@@ -1,0 +1,13 @@
+# INI serializer receiver: bounded SSA alias follow-up
+
+Target: the unchanged user-provided ELF SHA256 2e7d656b0862dff256c8224c6f1d52952a9d631562a9ce65e337b86994a8fb9d. Analysis used existing Ghidra 12.1.4/VitaLoaderRedux directly, not a REA native-provider result. No target execution, new import, relocation change or binary patch was performed. Only analysis metadata in the laboratory database was saved.
+
+The prior local-instruction search stopped near calls and did not follow aliases through callee-saved registers. GetterAliasPcode.java instead follows the decompiler SSA output of direct calls to the known container getter 0x8211b918. It propagates COPY, CAST and exactly zero integer additions. PHI nodes are reported as boundaries; they are not assumed equivalent. Stores using the tracked value as their exact destination address and calls receiving it are recorded as metadata.
+
+The existing database supplies 38 containing caller functions. All 38 decompile within the selected limit, exposing 48 getter-return roots. The script reports 12 call uses and no exact zero-offset store under that limited propagation. These counts do not establish all callers in the executable, all aliases or absence of a setter.
+
+Six direct helper targets were inspected in a bounded follow-up: 0x8211cbbe (670 recorded body bytes), 0x8211c08e (14), 0x8211ca78 (10), 0x8211ca82 (10), 0x8211d6b6 (74), and 0x8211d256 (144). The recorded decompilations do not identify a direct assignment to container field zero: visible operations concern higher-offset collection state, an indexed global getter, allocation/free wrappers, a higher-offset memory-block buffer and common-dialog update state. This is a scoped observation, not proof against indirect effects or type-recovery errors. Another reported helper, 0x8212abb4, was already inspected and rejected as the receiver setter in WDSV003; it was not repeated.
+
+Private decompiler output stays local in getter-alias-callees-private.json and is not published. The published getter-alias-pcode.json contains counts, addresses and use categories only. No commercial code bytes or pseudocode are included in the delivery.
+
+The serializer destination, actual serialized length, format and lifetime remain unresolved. Do not lift the 163840-byte native payload limit or fabricate compatible INI-DATA from this negative result. A next focused direction is assignment through the container owner's independently published pointer or interprocedural parameter aliases, including PHI boundaries; it must not repeat this same getter scan. Physical preparation remains blocked by isolation requirements, independently of this analysis.

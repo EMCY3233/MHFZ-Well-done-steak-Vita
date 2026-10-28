@@ -1,0 +1,11 @@
+{
+  "scope": "Own freestanding C manifest parser under ARM emulation; no records/SHA/selector/client/VitaOS",
+  "passed": 208,
+  "elf_sha256": "6094fb8fcfcca14b32ffdcfc42e2442d3ee610bbd9846b712f497641d9bc4926",
+  "case_counts": {
+    "valid manifest parity": 4,
+    "malformed output preserved": 202,
+    "null input rejected": 1,
+    "null output rejected": 1
+  }
+}

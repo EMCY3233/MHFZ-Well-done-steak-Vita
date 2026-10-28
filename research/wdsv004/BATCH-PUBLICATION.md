@@ -1,0 +1,7 @@
+# Publication protocol reference
+
+Coordinator uses injected callbacks only. It prepares a batch, requires completion acknowledgments for every record, reads the records back, checks that both baseline manifests are unchanged, and validates every candidate reference against observed bytes before publishing the manifest. A final full readback must recover the expected complete snapshot.
+
+Every exception blocks that coordinator instance. An acknowledgment failure after a full manifest write can leave the new generation recoverable even though commit raised; callers must not assume rollback or blindly retry. The tests explicitly exercise that case. Other injected faults cover record acknowledgment/readback, changed baseline, damaged unchanged member and manifest readback. Prepublication failures must never invoke the manifest writer. Subsequent calls on the blocked instance perform no writes.
+
+24 Python test methods pass across WDSV004, including six publication fault subcases. The coordinator requires an externally held exclusive ownership epoch; it implements no locks, disk adapter, durable flush, native SHA or native writer. Readback is evidence of visible bytes, not power-loss persistence. Reconstructing a coordinator requires independent recovery and ownership checks. No client or console execution occurred.

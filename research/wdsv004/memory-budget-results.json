@@ -1,0 +1,197 @@
+{
+  "scope": "Own native code compiler frame metadata and fixed buffers; not client/Vita process memory or measured physical budget",
+  "compiler": "arm-vita-eabi-gcc.exe (GNU Tools for ARM Embedded Processors) 15.2.0",
+  "flags": [
+    "-mthumb",
+    "-mcpu=cortex-a9",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fstack-usage"
+  ],
+  "source_hashes": [
+    {
+      "path": "private_store.c",
+      "sha256": "d63289bee67e209c250c4c235cec55573f67e6a36f253ff9b340f221b969cd54"
+    },
+    {
+      "path": "batch_commit.c",
+      "sha256": "cbba856a52a60635821d209188886d411df936291e3c294c0362d5b8f08e90dc"
+    },
+    {
+      "path": "batch_plan.c",
+      "sha256": "e18a65f0693778cc9fdc79d1325d8c5a436e3ccfcc1f0d2725ed55a04dd1bbe7"
+    },
+    {
+      "path": "snapshot_reader.c",
+      "sha256": "2855866dd3c3157232f424d82b16fd707a9e39b4c926e80443480bdd043d1750"
+    },
+    {
+      "path": "manifest_reader.c",
+      "sha256": "a5af883c1e8f2a2886122e6d8dc8326dd5abce5279c51b51e0c2c1ee7496fd90"
+    },
+    {
+      "path": "record_ref.c",
+      "sha256": "d89de6dd9c36e5ac6a0f0007f2ad9a4ca9d5bff6b09b57828af4eb6fe49fad8b"
+    },
+    {
+      "path": "sha256.c",
+      "sha256": "cb9f3a6ff58879ce4a380e3bf89fbd78b7fb448c378a6d78db1574c5fe52ffb3"
+    }
+  ],
+  "frames": [
+    {
+      "function": "load",
+      "bytes": 32,
+      "kind": "static",
+      "translation_unit": "private_store.c"
+    },
+    {
+      "function": "save",
+      "bytes": 16,
+      "kind": "static",
+      "translation_unit": "private_store.c"
+    },
+    {
+      "function": "wdsv004_private_read",
+      "bytes": 120,
+      "kind": "static",
+      "translation_unit": "private_store.c"
+    },
+    {
+      "function": "wdsv004_private_record",
+      "bytes": 16,
+      "kind": "static",
+      "translation_unit": "private_store.c"
+    },
+    {
+      "function": "wdsv004_private_manifest",
+      "bytes": 16,
+      "kind": "static",
+      "translation_unit": "private_store.c"
+    },
+    {
+      "function": "equal",
+      "bytes": 12,
+      "kind": "static",
+      "translation_unit": "batch_commit.c"
+    },
+    {
+      "function": "same",
+      "bytes": 0,
+      "kind": "static",
+      "translation_unit": "batch_commit.c"
+    },
+    {
+      "function": "wdsv004_commit",
+      "bytes": 832,
+      "kind": "static",
+      "translation_unit": "batch_commit.c"
+    },
+    {
+      "function": "put",
+      "bytes": 0,
+      "kind": "static",
+      "translation_unit": "batch_plan.c"
+    },
+    {
+      "function": "wdsv004_prepare",
+      "bytes": 712,
+      "kind": "static",
+      "translation_unit": "batch_plan.c"
+    },
+    {
+      "function": "wdsv004_recover",
+      "bytes": 488,
+      "kind": "static",
+      "translation_unit": "snapshot_reader.c"
+    },
+    {
+      "function": "get",
+      "bytes": 0,
+      "kind": "static",
+      "translation_unit": "manifest_reader.c"
+    },
+    {
+      "function": "wdsv004_read_manifest",
+      "bytes": 192,
+      "kind": "static",
+      "translation_unit": "manifest_reader.c"
+    },
+    {
+      "function": "get",
+      "bytes": 0,
+      "kind": "static",
+      "translation_unit": "record_ref.c"
+    },
+    {
+      "function": "crc",
+      "bytes": 12,
+      "kind": "static",
+      "translation_unit": "record_ref.c"
+    },
+    {
+      "function": "wdsv004_resolve_record",
+      "bytes": 72,
+      "kind": "static",
+      "translation_unit": "record_ref.c"
+    },
+    {
+      "function": "block",
+      "bytes": 336,
+      "kind": "static",
+      "translation_unit": "sha256.c"
+    },
+    {
+      "function": "wdsv004_sha256",
+      "bytes": 184,
+      "kind": "static",
+      "translation_unit": "sha256.c"
+    }
+  ],
+  "sum_reported_frames": 3040,
+  "policies": [
+    {
+      "policy": "existing",
+      "record_caps": [
+        163876,
+        163876,
+        163876
+      ],
+      "pool_bytes": 983636,
+      "independent_replacement_bytes": 491628,
+      "subtotal_bytes": 1475264
+    },
+    {
+      "policy": "hypothetical_ini_only",
+      "record_caps": [
+        512036,
+        163876,
+        163876
+      ],
+      "pool_bytes": 1679956,
+      "independent_replacement_bytes": 839788,
+      "subtotal_bytes": 2519744
+    },
+    {
+      "policy": "hypothetical_all_large",
+      "record_caps": [
+        512036,
+        512036,
+        512036
+      ],
+      "pool_bytes": 3072596,
+      "independent_replacement_bytes": 1536108,
+      "subtotal_bytes": 4608704
+    }
+  ],
+  "limits": [
+    "Frame sizes are per function, not whole-program stack bounds; indirect callbacks, OS stack, libraries and interrupts excluded.",
+    "Replacement budget assumes all three payloads staged independently; game allocations and temporary serialization excluded.",
+    "No capacity changed; hypothetical policies do not establish compatibility or available Vita memory."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "Native batch preparation, recovery and SHA under ARM; Python parity oracle only; no writes/OS/client/Vita",
+  "passed": 13,
+  "cases": [
+    "one changed preserves other refs",
+    "two changes opposite slots",
+    "empty live tombstone first introduction",
+    "absence cannot initialize",
+    "empty batch rejected",
+    "invalid replacement 50",
+    "invalid replacement 38",
+    "invalid replacement 163877",
+    "native capacity accepted",
+    "generation exhausted",
+    "generation above incomplete newer",
+    "conflicting baseline rejected",
+    "sequence exhausted"
+  ],
+  "elf_sha256": "483aa4730a65d53a430c2a80756c5cdff1504d08c3115d4f1f17dae9f736bf84",
+  "undefined_symbols": []
+}

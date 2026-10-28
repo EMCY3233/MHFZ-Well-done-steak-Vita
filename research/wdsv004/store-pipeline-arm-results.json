@@ -1,0 +1,85 @@
+{
+  "scope": "Combined native coordinator/private-store/planner/readers/SHA under ARM; only OS calls mocked; no client/Vita/durability proof",
+  "passed": 9,
+  "cases": [
+    {
+      "fault": null,
+      "result": 0,
+      "recovered_generation": 2,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/pri-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/manifest-b.bin"
+      ]
+    },
+    {
+      "fault": "second-open",
+      "result": -1,
+      "recovered_generation": 1,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin"
+      ]
+    },
+    {
+      "fault": "second-partial",
+      "result": -1,
+      "recovered_generation": 1,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/pri-b.bin"
+      ]
+    },
+    {
+      "fault": "record-readback",
+      "result": -1,
+      "recovered_generation": 1,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/pri-b.bin"
+      ]
+    },
+    {
+      "fault": "manifest-partial",
+      "result": -1,
+      "recovered_generation": 1,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/pri-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/manifest-b.bin"
+      ]
+    },
+    {
+      "fault": "manifest-close",
+      "result": -1,
+      "recovered_generation": 2,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/pri-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/manifest-b.bin"
+      ]
+    },
+    {
+      "fault": "final-read",
+      "result": -1,
+      "recovered_generation": 2,
+      "write_paths": [
+        "ux0:data/MHFZL0001/wdsv004/ini-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/pri-b.bin",
+        "ux0:data/MHFZL0001/wdsv004/manifest-b.bin"
+      ]
+    },
+    {
+      "fault": "unverified-parent",
+      "result": -1,
+      "recovered_generation": 1,
+      "write_paths": []
+    },
+    {
+      "fault": "no-baseline",
+      "result": -1,
+      "recovered_generation": null,
+      "write_paths": []
+    }
+  ],
+  "elf_sha256": "e99671523aa5830f696c8906dbb133f9c8db3163a4e6c6f4598c68e225add5a9"
+}
