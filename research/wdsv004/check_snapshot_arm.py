@@ -4,7 +4,8 @@ HERE=pathlib.Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 sys.path.insert(0,str(ROOT/'analysis-tools/test-python'))
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_THUMB,UC_HOOK_CODE
 from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3,UC_ARM_REG_SP,UC_ARM_REG_LR,UC_ARM_REG_PC
-sdk=ROOT/'analysis-tools/vitasdk-win-20260825/bin';target=HERE/'snapshot-reader-test.elf'
+from arm_tools import sdk_bin
+sdk=sdk_bin();target=HERE/'snapshot-reader-test.elf'
 (HERE/'record-ref-test-stub.c').write_text('#include <stdint.h>\nint wdsv_test_digest(const uint8_t *p,uint32_t n,uint8_t *o){(void)p;(void)n;(void)o;return -1;}\n')
 subprocess.run([str(sdk/'arm-vita-eabi-gcc.exe'),'-mthumb','-mcpu=cortex-a9','-mfloat-abi=soft','-Os','-Wall','-Wextra','-Werror','-ffreestanding','-fno-builtin','-nostdlib','-Wl,-Ttext=0x10000,--entry=wdsv004_recover,--build-id=none',str(HERE/'snapshot_reader.c'),str(HERE/'manifest_reader.c'),str(HERE/'record_ref.c'),str(HERE/'record-ref-test-stub.c'),'-o',str(target)],check=True,creationflags=subprocess.CREATE_NO_WINDOW)
 symbols={}

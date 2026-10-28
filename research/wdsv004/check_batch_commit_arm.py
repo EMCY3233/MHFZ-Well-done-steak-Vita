@@ -8,7 +8,8 @@ sys.path.insert(0,str(HERE))
 from test_snapshot import record,manifest
 from batch_plan import prepare
 from snapshot import recover
-sdk=ROOT/'analysis-tools/vitasdk-win-20260825/bin';target=HERE/'batch-commit-test.elf'
+from arm_tools import sdk_bin
+sdk=sdk_bin();target=HERE/'batch-commit-test.elf'
 (HERE/'batch-store-stub.c').write_text('#include '+chr(34)+'batch_commit.h'+chr(34)+'\nint test_read(void*c,wdsv004_buffer*m,wdsv004_buffer r[3][2]){(void)c;(void)m;(void)r;return -1;}\nint test_record(void*c,uint32_t a,uint32_t b,const wdsv004_buffer*d){(void)c;(void)a;(void)b;(void)d;return -1;}\nint test_manifest(void*c,uint32_t a,const wdsv004_buffer*d){(void)c;(void)a;(void)d;return -1;}\n')
 subprocess.run([str(sdk/'arm-vita-eabi-gcc.exe'),'-mthumb','-mcpu=cortex-a9','-mfloat-abi=soft','-Os','-Wall','-Wextra','-Werror','-ffreestanding','-fno-builtin','-nostdlib','-Wl,-Ttext=0x10000,--entry=wdsv004_commit,--build-id=none',*[str(HERE/(name+'.c')) for name in ['batch_commit','batch_plan','snapshot_reader','manifest_reader','record_ref','sha256','batch-store-stub']],'-o',str(target)],check=True,creationflags=subprocess.CREATE_NO_WINDOW)
 assert not subprocess.check_output([str(sdk/'arm-vita-eabi-nm.exe'),'-u',str(target)],text=True).strip()

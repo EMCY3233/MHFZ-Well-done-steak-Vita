@@ -4,7 +4,8 @@ import hashlib,json,struct,subprocess,sys
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];sys.path.insert(0,str(ROOT/'analysis-tools/test-python'))
 from unicorn import Uc,UC_ARCH_ARM,UC_MODE_THUMB,UC_HOOK_CODE
 from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3,UC_ARM_REG_SP,UC_ARM_REG_LR,UC_ARM_REG_PC
-sdk=ROOT/'analysis-tools/vitasdk-win-20260825/bin';output=HERE/'store-pipeline-test.elf'
+from arm_tools import sdk_bin
+sdk=sdk_bin();output=HERE/'store-pipeline-test.elf'
 stub=HERE/'store-pipeline-test-stubs.c'
 stub.write_text('#include <psp2/io/fcntl.h>\nSceUID sceIoOpen(const char *p,int f,SceMode m){(void)p;(void)f;(void)m;return 0;}\nSceSSize sceIoRead(SceUID f,void *p,SceSize n){(void)f;(void)p;(void)n;return 0;}\nSceSSize sceIoWrite(SceUID f,const void *p,SceSize n){(void)f;(void)p;(void)n;return 0;}\nint sceIoClose(SceUID f){(void)f;return 0;}\n')
 command=[str(sdk/'arm-vita-eabi-gcc.exe'),'-mthumb','-mcpu=cortex-a9','-mfloat-abi=soft','-Os','-Wall','-Wextra','-Werror','-ffreestanding','-fno-builtin','-fno-ipa-icf','-fno-stack-protector','-nostdlib','-Wl,-Ttext=0x10000,--entry=wdsv004_commit,--build-id=none',*[str(HERE/(name+'.c')) for name in ['private_store','batch_commit','batch_plan','snapshot_reader','manifest_reader','record_ref','sha256']],str(stub),'-o',str(output)]

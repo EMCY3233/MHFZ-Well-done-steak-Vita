@@ -1,0 +1,40 @@
+name: WDSV004 synthetic ARM checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  arm:
+    runs-on: windows-2022
+    timeout-minutes: 25
+    env:
+      WDSV_VITASDK_BIN: ${{ github.workspace }}/analysis-tools/vitasdk/bin
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+          architecture: x64
+      - name: Install pinned emulator
+        run: python -m pip install unicorn==2.1.4
+      - name: Download and verify pinned VitaSDK
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          New-Item -ItemType Directory -Force analysis-tools/vitasdk | Out-Null
+          $archive = 'analysis-tools/vitasdk.tar.bz2'
+          Invoke-WebRequest 'https://github.com/vitasdk/autobuilds/releases/download/sdk-snapshot-20260825.611.1/vitasdk-bootstrap-x86_64-w64-mingw32.tar.bz2' -OutFile $archive
+          if ((Get-FileHash -Algorithm SHA256 $archive).Hash.ToLowerInvariant() -ne '99c626dc6821cbc87eef3e5ce0a8447b813041e9948adae6d444b6d9b8851174') {
+            throw 'VitaSDK archive SHA256 mismatch'
+          }
+          tar -xjf $archive -C analysis-tools/vitasdk --strip-components=1
+          if ($LASTEXITCODE -ne 0) { throw 'VitaSDK extraction failed' }
+      - name: Run synthetic ARM harnesses
+        run: python research/wdsv004/run_arm_checks.py
+      - name: Upload synthetic evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wdsv004-synthetic-arm-${{ github.sha }}
+          path: work/arm-results/*.json
+          if-no-files-found: error
+          retention-days: 14

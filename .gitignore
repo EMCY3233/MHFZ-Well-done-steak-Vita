@@ -11,3 +11,4 @@ standalone/build*/
 *.bin
 *.log
 *.asm.txt
+work/
