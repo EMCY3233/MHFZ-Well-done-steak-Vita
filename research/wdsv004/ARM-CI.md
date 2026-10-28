@@ -1,6 +1,6 @@
 # Reproducible synthetic ARM checks
 
-The `WDSV004 synthetic ARM checks` workflow executes the nine existing WDSV004
+The `WDSV004 synthetic ARM checks` workflow executes the ten WDSV004
 ARM harnesses on Windows 2022. It does not execute the commercial client, VitaOS,
 or a console. The counts overlap and must not be added as independent coverage.
 
@@ -20,6 +20,7 @@ before extraction. No compiler, game resources, or generated ELF is uploaded.
 | batch_commit | 10 | Store callbacks mocked |
 | private_store | 31 | OS calls mocked |
 | store_pipeline | 9 | OS calls mocked; native storage chain |
+| text_handoff | 40 | Own native synthetic allocator; no client allocator |
 
 The wrapper copies tracked `.py`, `.c`, and `.h` sources from WDSV004 and the
 WDSV003 storage dependency into a fresh temporary tree under `work/`. It runs
