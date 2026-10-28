@@ -34,7 +34,7 @@ jobs:
           if ((Get-FileHash -Algorithm SHA256 $archive).Hash.ToLowerInvariant() -ne '99c626dc6821cbc87eef3e5ce0a8447b813041e9948adae6d444b6d9b8851174') {
             throw 'VitaSDK archive SHA256 mismatch'
           }
-          tar -xjf $archive -C analysis-tools/vitasdk --strip-components=1
+          python -c "import tarfile; archive = tarfile.open('analysis-tools/vitasdk.tar.bz2'); archive.extractall('analysis-tools', filter='data')"
           if ($LASTEXITCODE -ne 0) { throw 'VitaSDK extraction failed' }
       - name: Run synthetic ARM harnesses
         run: python research/wdsv004/run_arm_checks.py
