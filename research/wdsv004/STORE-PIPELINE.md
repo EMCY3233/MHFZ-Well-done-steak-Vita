@@ -1,0 +1,9 @@
+# Combined native storage pipeline
+
+check_store_pipeline_arm.py links the private eight-slot adapter, batch coordinator, planner, manifest/record/snapshot readers and SHA implementation into one ARM/Thumb test executable. Only sceIoOpen/Read/Write/Close are replaced by in-memory OS mocks. The test does not hook coordinator callbacks or the digest. No commercial binary, real filesystem or Vita is executed.
+
+Nine scenarios pass: two-member success; failure to open the second changed record; interruption after a partial second record; corrupt first-record readback; partial manifest publication; manifest close failure after full bytes; failure of the final read; unverified parent; and absence of a committed baseline. Writes are deliberately split into four-byte chunks. The test checks output preservation and zero additional I/O after an epoch blocks.
+
+Python recovery independently checks the resulting simulated files. Before manifest publication, interrupted batches recover generation 1 as a whole. After a complete manifest write followed by close/read failure, generation 2 can be recovered despite commit returning failure. The latter cases demonstrate uncertainty, not rollback. Unverified parents and missing baselines perform no publication. Only fixed wdsv004 laboratory paths appear in the write trace.
+
+The result file includes each fault, result, recoverable generation, written paths and original test ELF hash. The ELF is not published. These tests establish composition of the native components against the mock API contract. They do not establish actual sceIo behavior, validated directory/mount identity, exclusivity across processes, durable writes or power-loss recovery. Physical preparation remains blocked. The next independent obstacle is capacity and memory/lifetime policy for the observed 512000-byte INI-DATA, without blindly raising the existing native payload limit of 163840 bytes.
