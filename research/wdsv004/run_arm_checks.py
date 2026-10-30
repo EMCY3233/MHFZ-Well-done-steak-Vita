@@ -24,6 +24,7 @@ CHECKS = (
     ('batch_commit', 'batch-commit', 10),
     ('private_store', 'private-store', 31),
     ('store_pipeline', 'store-pipeline', 9),
+    ('text_handoff', 'text-handoff', 40),
 )
 
 
